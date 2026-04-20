@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CFBC — The Gym Where People Actually Show Up</title>
+<meta name="description" content="The accountability, coaching, and community that make consistency automatic. $140/mo unlimited. Veteran-owned since 2017." />
+<link rel="stylesheet" href="shared/colors_and_type.css" />
+<link rel="stylesheet" href="shared/lp.css" />
+<style>
+  /* Page 2 specific: ribbon of faces + journey steps */
+  .faces-strip { display:flex; margin-top: 18px; }
+  .faces-strip .f { width:36px; height:36px; border-radius:50%; border:2px solid #0B0B0C; background:var(--cfbc-red); display:flex;align-items:center;justify-content:center; font-family:var(--font-display); font-size:13px; color:#fff; margin-left:-8px; letter-spacing:.04em; }
+  .faces-strip .f:first-child { margin-left:0; }
+  .faces-strip .more { background:#141416; color:#D6D6DB; border:2px solid #0B0B0C; font-size:11px; font-weight:700; }
+  .journey { display:grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 40px; position: relative; }
+  .journey::before { content:""; position:absolute; top:34px; left:6%; right:6%; height:2px; background: linear-gradient(90deg, transparent, rgba(230,57,70,.4), rgba(230,57,70,.7), rgba(230,57,70,.4), transparent); z-index:0; }
+  .j-step { position: relative; z-index:1; text-align: center; padding: 0 10px; }
+  .j-step .circle { width:68px; height:68px; border-radius:50%; background:#141416; border:2px solid rgba(230,57,70,.6); display:flex; align-items:center; justify-content:center; margin: 0 auto 14px; font-family: var(--font-display); font-size:26px; color: var(--cfbc-red); }
+  .j-step h4 { font-family: var(--font-display); font-size:18px; text-transform:uppercase; letter-spacing:.02em; margin:0 0 6px; }
+  .j-step p { font-size:13px; color:#8E8E98; line-height:1.5; margin:0; }
+  .struggle { display:grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .struggle-col { background: var(--bg-surface); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:36px; }
+  .struggle-col h3 { font-family: var(--font-display); font-size:28px; text-transform:uppercase; letter-spacing:.02em; margin:0 0 20px; }
+  .struggle-col.before h3 { color:#8E8E98; }
+  .struggle-col.after h3 { color: var(--cfbc-red); }
+  .struggle-col ul { list-style:none; padding:0; margin:0; display:grid; gap:14px; }
+  .struggle-col li { display:grid; grid-template-columns: 24px 1fr; gap:12px; font-size:15px; line-height:1.5; color:#D6D6DB; }
+  .struggle-col.before li { color:#8E8E98; }
+  .struggle-col.before li::before { content:"✕"; color:#5a2028; font-weight:700; }
+  .struggle-col.after li::before { content:"✓"; color:var(--cfbc-red); font-weight:700; }
+  .community-grid { display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:16px; }
+  .community-grid .cell { border-radius:10px; overflow:hidden; position:relative; min-height:220px; }
+  .community-grid .cell img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+  .community-grid .cell .ovl { position:absolute; inset:0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,.9)); }
+  .community-grid .cell .cap { position:absolute; bottom:0; left:0; right:0; padding:20px; color:#fff; }
+  .community-grid .cell .cap .k { font-family: var(--font-display); font-size:22px; text-transform:uppercase; letter-spacing:.02em; }
+  .community-grid .cell .cap .v { font-size:13px; color:#D6D6DB; margin-top:4px; }
+  .community-grid .tall { grid-row: span 2; min-height: 456px; }
+  @media (max-width:900px) { .journey { grid-template-columns: 1fr 1fr; } .journey::before { display:none; } .struggle { grid-template-columns: 1fr; } .community-grid { grid-template-columns: 1fr; } .community-grid .tall { grid-row: auto; min-height: 260px; } }
+</style>
+</head>
+<body data-screen-label="Page 2 · Community & Accountability" data-hero-treatment="photo">
+
+<div class="promo-strip">
+  <span class="dot"></span><b>Iron &amp; Ales</b> · Last Friday · Wackadoo Brewing · 3:30 PM <a href="#iron-ales">Learn More →</a>
+</div>
+
+<nav class="lp-nav">
+  <div class="lp-nav-inner">
+    <div class="lp-nav-links left">
+      <a href="#struggle" class="active">Why You've Struggled</a>
+      <a href="#community">The Fix</a>
+      <a href="#iron-ales">Iron &amp; Ales</a>
+      <a href="#results">Stories</a>
+    </div>
+    <a href="#book" class="lp-logo-puck"><img src="assets/logo-cfbc.png" alt="CFBC"/></a>
+    <div class="lp-nav-links right">
+      <a href="tel:+17197772232">(719) 777-2232</a>
+      <a href="#book" class="lp-nav-cta" data-cta-slot>Book Your Free Intro</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="assets/action-3.avif" alt="Group workout at CFBC"/></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <span class="badge red"><span class="badge-dot"></span>900+ Members · 1 Community</span>
+      <span class="badge">Est. 2017</span>
+      <span class="badge gold"><span class="badge-dot"></span>Veteran Owned</span>
+    </div>
+    <h1 class="display-h1">
+      The Gym Where People <em class="red-em">Actually Show Up.</em>
+    </h1>
+    <p class="sub">You don't need more motivation. You need the right environment. A coach who knows your name. Members who text you when you miss a day. And an event to look forward to every month. That's $140/month at CFBC.</p>
+    <div class="hero-ctas">
+      <a href="#book" class="btn btn-primary btn-lg btn-chev" data-cta-slot>Book Your Free Intro</a>
+      <a href="#community" class="btn btn-ghost btn-lg">See The Community →</a>
+    </div>
+    <div class="faces-strip" aria-label="CFBC members">
+      <div class="f">MR</div><div class="f" style="background:#C0232F">KT</div><div class="f" style="background:#8E1620">DW</div><div class="f" style="background:#1F1F23;color:#E63946">JL</div><div class="f" style="background:#E63946">AS</div><div class="f" style="background:#C0232F">BP</div><div class="f more">+894</div>
+    </div>
+    <div style="margin-top:14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8E8E98;font-weight:600">900+ athletes. Avg tenure: 2.4 years.</div>
+  </div>
+</section>
+
+<section class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="cell"><div><div class="num">87%</div><div class="lbl">Members still training<br/>after their first year</div></div></div>
+    <div class="cell"><div><div class="num">4.9★</div><div class="lbl">186 Google reviews<br/>most mention "community"</div></div></div>
+    <div class="cell"><div><div class="num">2.4 yrs</div><div class="lbl">Average member tenure<br/>(industry avg: 4 months)</div></div></div>
+    <div class="cell"><div><div class="num">100%</div><div class="lbl">Of coaches know<br/>every member by name</div></div></div>
+  </div>
+</section>
+
+<!-- WHY YOU'VE STRUGGLED BEFORE -->
+<section id="struggle" class="pad-y">
+  <div class="wrap">
+    <div style="max-width:780px;margin:0 auto 48px;text-align:center">
+      <div class="eyebrow" style="justify-content:center">The Real Problem</div>
+      <h2 class="display-h2">You Didn't Fail The Gym. The Gym Failed You.</h2>
+      <p class="body-lg" style="margin-top:18px">Every January you tried again. Every March you quit. The pattern isn't about discipline — it's about design. Training alone, without accountability, without a coach who notices, is a system built to fail.</p>
+    </div>
+    <div class="struggle">
+      <div class="struggle-col before">
+        <h3>What You've Had</h3>
+        <ul>
+          <li>Walked in. Nobody noticed. Walked back out.</li>
+          <li>Checked in on an app. Nobody followed up.</li>
+          <li>Hurt your lower back. Googled how to fix it.</li>
+          <li>Got bored of the same 4 machines in week 3.</li>
+          <li>Missed a week. Then two. Then forgot your login.</li>
+          <li>Didn't know a single other person there.</li>
+          <li>Paid for 9 months of a membership you used for 2.</li>
+        </ul>
+      </div>
+      <div class="struggle-col after">
+        <h3>What CFBC Gives You</h3>
+        <ul>
+          <li>Coach greets you by name. Every. Single. Class.</li>
+          <li>Miss 2 classes — coach texts to check in.</li>
+          <li>Form correction on every lift, before you get hurt.</li>
+          <li>Programming changes weekly. Never boring.</li>
+          <li>Your class buddies ask "where were you?"</li>
+          <li>You know 30 people in 30 days. Minimum.</li>
+          <li>You look forward to going. That's the whole trick.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY IMAGE GRID -->
+<section id="community" class="pad-y" style="background:#09090a">
+  <div class="wrap">
+    <div style="max-width:820px;margin:0 0 40px">
+      <div class="eyebrow">This Is What Consistency Looks Like</div>
+      <h2 class="display-h2">Not A Membership. <em class="red-em">A Room Full Of People Rooting For You.</em></h2>
+      <p class="body-lg" style="margin-top:14px">CFBC runs 55+ classes a week, Iron &amp; Ales on the last Friday, birthday WODs, ruck challenges, and a closed Facebook group where 900 members trade PR photos and coaching questions daily.</p>
+    </div>
+    <div class="community-grid">
+      <div class="cell tall">
+        <img src="assets/action-1.avif" alt="Class high-fives"/>
+        <div class="ovl"></div>
+        <div class="cap"><div class="k">5:30 AM Class</div><div class="v">The core 40 — they start your Monday before your alarm does.</div></div>
+      </div>
+      <div class="cell">
+        <img src="assets/action-2.avif" alt="Partner workout"/>
+        <div class="ovl"></div>
+        <div class="cap"><div class="k">Team WOD</div><div class="v">Partner up. Finish together.</div></div>
+      </div>
+      <div class="cell">
+        <img src="assets/class-iron-ales.avif" alt="Iron and Ales"/>
+        <div class="ovl"></div>
+        <div class="cap"><div class="k">Iron &amp; Ales</div><div class="v">Last Friday · Wackadoo Brewing</div></div>
+      </div>
+      <div class="cell">
+        <img src="assets/action-4.avif" alt="Coach and member"/>
+        <div class="ovl"></div>
+        <div class="cap"><div class="k">Coach Clint</div><div class="v">Knows you. Remembers your 3RM.</div></div>
+      </div>
+      <div class="cell">
+        <img src="assets/photo-stretch.webp" alt="Post workout stretch"/>
+        <div class="ovl"></div>
+        <div class="cap"><div class="k">After Class</div><div class="v">Nobody rushes out. Nobody leaves alone.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE PILLARS: How accountability works -->
+<section class="pad-y">
+  <div class="wrap">
+    <div style="max-width:780px;margin:0 0 40px">
+      <div class="eyebrow">How The System Works</div>
+      <h2 class="display-h2">Four Things That Make Missing A Class Feel Wrong.</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01</div>
+        <h3 class="display-h3">Named Coach</h3>
+        <p>Clint, Lisa, and the team greet you by name the moment you walk in. They remember your goals, your PRs, and the last thing you were working on.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">02</div>
+        <h3 class="display-h3">Class Buddies</h3>
+        <p>You'll pick a class time and keep it. In two weeks, the 5:30am crew is "your crew." They ask where you are when you miss.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">03</div>
+        <h3 class="display-h3">Monthly Rituals</h3>
+        <p>Iron &amp; Ales, Partner WODs, birthday whiteboards, and hero workouts. Rituals are the scaffolding consistency is built on.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">04</div>
+        <h3 class="display-h3">Private Group</h3>
+        <p>900 members in our private Facebook + text group. PR photos, scaling questions, ride-shares to Iron &amp; Ales. Support doesn't end at the gym door.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IRON & ALES -->
+<section id="iron-ales" class="pad-y">
+  <div class="wrap">
+    <div class="iron-ales">
+      <div>
+        <div class="label">◆ The Reason People Stay</div>
+        <h3>One Friday A Month, <em>We Put Down The Barbell</em> And Pick Up A Pint.</h3>
+        <p>Iron &amp; Ales is the beating heart of CFBC. It's a scaled partner WOD at 3:30pm, then a walk next door to Wackadoo Brewing for pints, tacos, and the conversations that turn classmates into a tribe. It's why retention here is 6x the industry average.</p>
+        <a href="#book" class="btn btn-primary btn-chev" data-cta-slot>Book Your Free Intro</a>
+      </div>
+      <div class="iron-ales-facts">
+        <div class="ia-fact"><div class="k">3:30 PM</div><div class="v">Last Friday of every month</div></div>
+        <div class="ia-fact"><div class="k">Scaled</div><div class="v">Every level. Every fitness. Every age.</div></div>
+        <div class="ia-fact"><div class="k">Wackadoo</div><div class="v">Two blocks away. Pints + food truck.</div></div>
+        <div class="ia-fact"><div class="k">Guests Free</div><div class="v">Bring a friend their first time.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOUR JOURNEY -->
+<section class="pad-y" style="background:#09090a">
+  <div class="wrap">
+    <div style="max-width:760px;margin:0 0 20px">
+      <div class="eyebrow">Your Path To "Regular"</div>
+      <h2 class="display-h2">How You Become A Member Who Can't Imagine Missing.</h2>
+    </div>
+    <div class="journey">
+      <div class="j-step"><div class="circle">1</div><h4>Free Intro</h4><p>45 min, 1-on-1 with a coach. No workout, no pressure.</p></div>
+      <div class="j-step"><div class="circle">2</div><h4>On-Ramp Week</h4><p>Movement basics + class intro. You'll know 6 names by Friday.</p></div>
+      <div class="j-step"><div class="circle">3</div><h4>Pick Your Time</h4><p>Your class, your crew. Same time, same faces, every week.</p></div>
+      <div class="j-step"><div class="circle">4</div><h4>First Iron &amp; Ales</h4><p>Month 1 or 2. The moment it clicks.</p></div>
+      <div class="j-step"><div class="circle">5</div><h4>Regular</h4><p>By month 3, you don't skip. The room wouldn't let you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE STACK -->
+<section class="pad-y">
+  <div class="wrap">
+    <div style="max-width:760px;margin:0 auto 40px;text-align:center">
+      <div class="eyebrow" style="justify-content:center">What $140/month Includes</div>
+      <h2 class="display-h2">One Price. Every Class. Every Event. Every Coach.</h2>
+    </div>
+    <div class="stack-card" data-price-display style="max-width:860px;margin:0 auto">
+      <div class="stack-head">
+        <div>
+          <div class="eyebrow" style="margin-bottom:6px">Unlimited Membership</div>
+          <div class="stack-price">
+            <sup>$</sup><span data-price-num>140</span><small data-price-unit>/mo</small>
+          </div>
+          <div class="body" style="font-size:13px;color:#8E8E98;margin-top:6px" data-price-note>Billed monthly · Cancel anytime</div>
+        </div>
+        <a href="#book" class="btn btn-primary" data-cta-slot>Book Your Free Intro</a>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">Unlimited Group Classes<span>55+ times/week · CrossFit · Team WOD · Oly</span></div><div class="val">Flat</div></div>
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">Named-Coach Accountability<span>Coaches text you if you miss. That's the system.</span></div><div class="val">Included</div></div>
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">Iron &amp; Ales Monthly<span>Partner WOD + pints at Wackadoo next door</span></div><div class="val">Included</div></div>
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">Member Community Group<span>Private 900-member FB group · PR photos · scaling Q&amp;A</span></div><div class="val">Included</div></div>
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">24/7 Hybrid AF Keyless Entry<span>Open Gym access, 4am–10pm every day</span></div><div class="val">Included</div></div>
+      </div>
+      <div data-risk style="margin-top:24px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8E8E98;font-weight:700;text-align:center"><span style="color:#2BB673">✓</span> Free 1-on-1 Intro · No Obligation</div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<section class="urgency pad-y">
+  <div class="wrap urgency-inner">
+    <div>
+      <div class="eyebrow">This Week's Intros Close Friday</div>
+      <h2 class="display-h2">The Spot In Our 5:30am Class Has Your Name On It.</h2>
+      <p class="body-lg" style="margin-top:14px">We cap free intros at <b style="color:#fff">12 a week</b> to make sure every new member gets real coaching attention — and gets introduced to the crew.</p>
+      <div class="countdown" aria-label="Countdown to enrollment close">
+        <div class="cd-cell"><div class="n">00</div><div class="l">Days</div></div>
+        <div class="cd-cell"><div class="n">00</div><div class="l">Hours</div></div>
+        <div class="cd-cell"><div class="n">00</div><div class="l">Min</div></div>
+        <div class="cd-cell"><div class="n">00</div><div class="l">Sec</div></div>
+      </div>
+    </div>
+    <div class="spots">
+      <h5><span data-spots-n>7</span> of 12 Intro Slots Left This Week</h5>
+      <div class="spots-bar"><div class="spots-bar-fill" style="width:42%"></div></div>
+      <small>Slots refill every Sunday at midnight MST</small>
+      <a href="#book" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-top:18px" data-cta-slot>Book Your Free Intro</a>
+      <div data-risk style="margin-top:12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8E8E98;font-weight:700;text-align:center"><span style="color:#2BB673">✓</span> Free 1-on-1 Intro · No Obligation</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="results" class="pad-y" style="background:#09090a">
+  <div class="wrap">
+    <div style="max-width:760px;margin:0 0 48px">
+      <div class="eyebrow">The People Who Found Their Place</div>
+      <h2 class="display-h2">"This Isn't A Gym. It's The Best Part Of My Week."</h2>
+    </div>
+    <div class="tests-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"I was the 'I pay for a gym I never go to' person for 5 years. At CFBC, I haven't missed a Monday in 14 months. The 5:30am crew calls me if I'm not there. That's the difference."</p>
+        <div class="test-person">
+          <div class="test-avatar init">JL</div>
+          <div>
+            <div class="test-name">Jessie L.</div>
+            <div class="test-meta">Member · 14 months</div>
+            <div class="test-result">Perfect attendance · 8 mo</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Moved to Colorado Springs alone at 34. Joined CFBC for fitness. Stayed for the people. I was at three members' weddings this year. Iron &amp; Ales is my Friday night, and I am okay with that."</p>
+        <div class="test-person">
+          <div class="test-avatar init">AS</div>
+          <div>
+            <div class="test-name">Alex S.</div>
+            <div class="test-meta">Member · 3 yrs</div>
+            <div class="test-result">Moved here alone · Now has a tribe</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"I tried the chain with my husband for 8 months. We went twice. We joined CFBC together and now we go four times a week — we go because of the people, not the workouts."</p>
+        <div class="test-person">
+          <div class="test-avatar init">BP</div>
+          <div>
+            <div class="test-name">Brooke &amp; Paul</div>
+            <div class="test-meta">Couple membership · 2 yrs</div>
+            <div class="test-result">4x/week · together</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section id="book" class="pad-y">
+  <div class="wrap">
+    <div style="max-width:720px;margin:0 0 40px">
+      <div class="eyebrow">Your First Step</div>
+      <h2 class="display-h2">Come Say Hi. That's It.</h2>
+      <p class="body-lg" style="margin-top:14px">Your free No-Sweat Intro is 45 minutes with a coach. We meet you, learn your story, show you around, and you decide if we're your people.</p>
+    </div>
+    <div class="book-block">
+      <div class="book-info">
+        <h3 class="display-h3">You'll Meet</h3>
+        <p class="body">A coach. Probably two. A couple of early-morning members finishing up. And — if you come on Wednesday — Otis, the gym dog, who will demand you pet him.</p>
+        <ul>
+          <li>No workout, no sweat, no pressure</li>
+          <li>Gym tour &amp; class schedule walk-through</li>
+          <li>Quick goals conversation (what worked, what didn't)</li>
+          <li>Intro to 2–3 members in your ideal class time</li>
+          <li>Decide later. We'll never cold-call you.</li>
+        </ul>
+        <div style="margin-top:28px;padding:18px;background:#0e0e10;border:1px dashed rgba(245,183,0,.3);border-radius:8px">
+          <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cfbc-gold);font-weight:700;margin-bottom:6px">⚑ Prefer to text first?</div>
+          <div style="font-size:14px;color:#D6D6DB;line-height:1.55">Text us at <a href="sms:+17197772232" style="color:#fff;text-decoration:underline;text-underline-offset:3px">(719) 777-2232</a>. We'll answer like a human, not a bot.</div>
+        </div>
+      </div>
+      <div class="cal">
+        <div class="cal-head">
+          <h4 data-cal-head>April 2026</h4>
+          <div class="nav">
+            <button data-cal-prev aria-label="prev">‹</button>
+            <button data-cal-next aria-label="next">›</button>
+          </div>
+        </div>
+        <div class="cal-grid"></div>
+        <div class="cal-slots"></div>
+        <div class="cal-foot">
+          <div class="sel">Pick a date &amp; time</div>
+          <button class="btn btn-primary cal-confirm" disabled style="opacity:.45" data-cta-slot>Book Your Free Intro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="eyebrow" style="justify-content:center">Last Thing</div>
+  <h2 class="display-h2">You've Been <em class="red-em">Alone In A Gym</em> Long Enough.</h2>
+  <p class="body-lg">The people who show up for you aren't waiting at Planet Fitness. They're at CFBC. 5:30am, 9am, noon, 4:30pm, 6pm. Pick a class. Find your crew.</p>
+  <div class="btns">
+    <a href="#book" class="btn btn-primary btn-lg btn-chev" data-cta-slot>Book Your Free Intro</a>
+    <a href="tel:+17197772232" class="btn btn-ghost btn-lg">Call / Text Us</a>
+  </div>
+  <div data-risk class="risk"><span>✓</span> Free 1-on-1 Intro · No Obligation</div>
+</section>
+
+<footer class="lp-footer">
+  <div class="lp-footer-inner">
+    <div class="brand">
+      <img src="assets/logo-cfbc.png" class="logo" alt="CrossFit Bonnie & Clyde"/>
+      <div style="color:#8E8E98;font-size:13px;line-height:1.6;max-width:300px">Community-driven, fitness-focused. Veteran-owned CrossFit box in Colorado Springs since 2017.</div>
+      <div class="socials">
+        <a href="#"><img src="assets/icon-social-fb.png" alt="Facebook"/></a>
+        <a href="#"><img src="assets/icon-social-ig.png" alt="Instagram"/></a>
+        <a href="#"><img src="assets/icon-social-gb.png" alt="Google"/></a>
+      </div>
+    </div>
+    <div><h5>Visit</h5><ul><li>706 Arrawanna St</li><li>Colorado Springs, CO 80909</li><li><a href="tel:+17197772232">(719) 777-2232</a></li></ul></div>
+    <div><h5>Schedule</h5><ul><li>Mon–Fri · 4am–8pm</li><li>Sat · 7am–12pm</li><li>Open Gym 24/7</li></ul></div>
+    <div><h5>Pages</h5><ul><li><a href="index.html">All Landing Pages</a></li><li><a href="page-1-best-gym.html">Best Gym Page</a></li><li><a href="page-3-beginner.html">Beginner Page</a></li></ul></div>
+  </div>
+  <div class="lp-footer-bottom">
+    <div>© 2026 CrossFit Bonnie &amp; Clyde · Colorado Springs, CO</div>
+    <div>Veteran-owned · Est. 2017</div>
+  </div>
+</footer>
+
+<a href="#book" class="sticky-pill" data-cta-slot><span class="blink"></span>Book Your Free Intro</a>
+<div class="sticky-bar">
+  <div class="info"><b>$140/mo</b> <span>Free No-Sweat Intro</span></div>
+  <a href="#book" class="btn btn-primary" data-cta-slot>Book</a>
+</div>
+
+<script>
+window.CFBC_PAGE_CONFIG = {
+  pageLabel: 'Page 2 · Community & Accountability',
+  pageAngle: 'Belonging + Consistency · "Right environment > more motivation"',
+  tweakDefaults: /*EDITMODE-BEGIN*/{
+    "headline": 0,
+    "hero_treatment": "video",
+    "iron_ales_banner": true,
+    "cta_copy": "book_intro",
+    "price_display": "monthly",
+    "risk_reversal": "free_trial"
+  }/*EDITMODE-END*/,
+  headlines: [
+    { label:'Where People Actually Show Up', html:'The Gym Where People <em class="red-em">Actually Show Up.</em>', sub:'You don\'t need more motivation. You need the right environment. A coach who knows your name. Members who text you when you miss a day. And an event to look forward to every month. That\'s $140/month at CFBC.' },
+    { label:'Right Room, Not More Willpower', html:'You Don\'t Need Willpower. <em class="red-em">You Need The Right Room.</em>', sub:'Consistency isn\'t a character trait. It\'s a byproduct of the people you train with. Come meet yours.' },
+    { label:'Where Members Stay 6x Longer', html:'The Colorado Springs Gym Where <em class="red-em">Members Stay 6x Longer.</em>', sub:'Industry average: 4 months. CFBC average: 2.4 years. The math isn\'t about fitness. It\'s about belonging.' },
+    { label:'Your Crew Is Already Here', html:'Your 5:30AM Crew <em class="red-em">Already Exists.</em> You Just Haven\'t Met Them.', sub:'Forty athletes. Same time, same class, every Monday. They\'re waiting to notice when you walk in.' },
+    { label:'Fitness Without Loneliness', html:'Fitness Without The <em class="red-em">Loneliness.</em>', sub:'CFBC is a community that happens to move barbells. $140/month, unlimited, no contract, 900 members.' },
+    { label:'Third Place', html:'CFBC Is Your Third Place. <em class="red-em">With Squat Racks.</em>', sub:'The sociologist Ray Oldenburg said we all need a "third place" — not home, not work. For 900 members of CFBC, that\'s us.' },
+    { label:'Built In Accountability', html:'Built-In Accountability. <em class="red-em">Built-For-Colorado Community.</em>', sub:'Coaches who text you when you miss. Class buddies who save your spot. Iron &amp; Ales every last Friday. That\'s how it works.' },
+    { label:'Proof Forward', html:'900 Members. <em class="red-em">One Reason They Stay.</em>', sub:'Read 186 five-star Google reviews. The word "community" appears in 74% of them. That\'s not marketing. That\'s the product.' }
+  ],
+  copylab: {
+    ctas: [
+      'Join Your First Workout',
+      'Meet Your Crew (Free Intro)',
+      'Find Your 5:30AM Class',
+      'Come Try It With Us',
+      'Reserve My No-Sweat Intro',
+      'I\'m Ready To Belong Somewhere',
+      'Start Free — No Contract'
+    ],
+    ironAles: [
+      'Train Hard. Then Celebrate Together. — anchor tagline',
+      'One Friday a month, we put down the barbell and pick up a pint.',
+      'Iron & Ales is why retention at CFBC is 6x the industry average.',
+      'Scaled partner WOD at 3:30 → Wackadoo Brewing at 4:30 → conversations that turn classmates into a tribe.',
+      'Bring a friend free their first time. Most of them join the next Monday.'
+    ],
+    objections: [
+      { q:'I\'m intimidated by a group class.', a:'So was every person in the room. Our on-ramp is 1-on-1 for your first week. By your second week, the 5:30am crew is asking about your weekend.' },
+      { q:'I don\'t like forced socializing.', a:'Nobody here forces anything. Iron & Ales is optional. Class is a workout, not small talk. But the weird thing is: you show up 3x/week to the same 40 people, and within a month you know them whether you planned to or not.' },
+      { q:'I\'ve been burned by gym memberships before.', a:'No contract, cancel anytime, no ghost-billing. If CFBC isn\'t a fit in 30 days, we part as friends. Most don\'t — and the reason is in the testimonials.' },
+      { q:'$140 is a lot for just class access.', a:'It\'s not just class access. It\'s an intentional community. The thing you couldn\'t find at $50 or $220. That\'s what your money is buying.' },
+      { q:'What if I can\'t make the same class time every day?', a:'You don\'t have to. 10 class times/day. Most members anchor one "primary" class (their crew) and drop in elsewhere as needed.' }
+    ],
+    visuals: [
+      'Hero: wide group shot, members high-fiving after a WOD, tangible energy.',
+      'Community grid: 5 warm photos — early morning class, partner WOD, Iron & Ales night, coach-member interaction, post-class stretch.',
+      'Journey: 5-step circular timeline, red accent, icon in each circle.',
+      'Testimonials: real headshots > initials when possible, quantified outcomes.',
+      'Iron & Ales: warm tungsten/amber tones, pints on the table, laughing members.'
+    ],
+    trust: [
+      '87% retention after year 1 (vs industry 20%)',
+      '2.4-year average member tenure',
+      '186 Google reviews — "community" appears in 74%',
+      '900 members in private group',
+      'Couple + family member testimonials',
+      'Perfect-attendance badges (8 mo+)',
+      '"Moved here alone, found my people" narrative pattern'
+    ]
+  }
+};
+</script>
+<script src="shared/lp.js"></script>
+</body>
+</html>

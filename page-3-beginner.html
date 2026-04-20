@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CFBC — Never Feel Lost or Intimidated in a Gym Again</title>
+<meta name="description" content="A beginner-safe, fully coached CrossFit onboarding in Colorado Springs. Every workout scaled. $140/mo unlimited. Veteran-owned since 2017." />
+<link rel="stylesheet" href="shared/colors_and_type.css" />
+<link rel="stylesheet" href="shared/lp.css" />
+<style>
+  .fears { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .fear-card { background: var(--bg-surface); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding: 28px; position: relative; }
+  .fear-card .tag { display:inline-block; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#E63946; font-weight:700; padding:4px 10px; background: rgba(230,57,70,.1); border: 1px solid rgba(230,57,70,.3); border-radius:999px; margin-bottom:14px; }
+  .fear-card h4 { font-family: var(--font-display); font-size:24px; margin:0 0 10px; text-transform:uppercase; letter-spacing:.02em; line-height:1.1; }
+  .fear-card .fear-q { color:#8E8E98; font-size:14px; font-style:italic; margin:0 0 18px; line-height:1.5; }
+  .fear-card .fix { padding:16px; background:#0e0e10; border-radius:8px; border-left: 3px solid var(--cfbc-red); }
+  .fear-card .fix .lbl { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color: var(--cfbc-red); font-weight:700; margin-bottom:6px; }
+  .fear-card .fix p { color:#EDEDEF; font-size:14px; line-height:1.55; margin:0; }
+  @media (max-width:900px) { .fears { grid-template-columns:1fr; } }
+
+  .steps { display:grid; gap: 20px; max-width: 900px; margin: 0 auto; }
+  .step { display:grid; grid-template-columns: 96px 1fr auto; gap: 28px; align-items: center; background: var(--bg-surface); border:1px solid rgba(255,255,255,.06); border-radius: 12px; padding: 28px 32px; position: relative; }
+  .step .n { font-family: var(--font-display); font-size: 72px; line-height:.9; color: var(--cfbc-red); letter-spacing:-.01em; }
+  .step h3 { font-family: var(--font-display); font-size: 28px; text-transform:uppercase; letter-spacing:.02em; margin:0 0 6px; }
+  .step p { color:#B4B4BC; margin:0; font-size:15px; line-height: 1.55; }
+  .step .dur { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color: var(--cfbc-gold); font-weight:700; padding: 6px 12px; border: 1px solid rgba(245,183,0,.35); border-radius: 999px; background: rgba(245,183,0,.06); }
+  @media (max-width:720px){ .step { grid-template-columns: 60px 1fr; gap:16px; padding:22px; } .step .n { font-size:48px; } .step .dur { grid-column:1/-1; justify-self:start; } }
+
+  .scale-viz { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .scale-card { background: var(--bg-surface); border:1px solid rgba(255,255,255,.06); border-radius: 12px; padding: 28px 24px; }
+  .scale-card .level { font-family: var(--font-display); font-size: 15px; letter-spacing:.14em; text-transform:uppercase; color: var(--cfbc-gold); font-weight:700; margin-bottom: 10px; }
+  .scale-card h4 { font-family: var(--font-display); font-size: 26px; margin:0 0 14px; letter-spacing:.02em; }
+  .scale-card .rep { font-family: var(--font-display); font-size: 16px; color:#fff; letter-spacing:.02em; padding: 12px 14px; background:#0e0e10; border-radius:6px; margin-bottom:6px; display:flex; justify-content: space-between; align-items:center; }
+  .scale-card .rep span { font-size:12px; color:#8E8E98; letter-spacing:.1em; font-family: var(--font-body); font-weight:600; }
+  .scale-card.mid { border-color: rgba(230,57,70,.4); }
+  .scale-card.mid .level { color: var(--cfbc-red); }
+  @media (max-width:900px){ .scale-viz { grid-template-columns: 1fr; } }
+
+  .coaches-row { display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .coach-card { display:grid; grid-template-columns: 140px 1fr; gap: 20px; background: var(--bg-surface); border: 1px solid rgba(255,255,255,.06); border-radius: 12px; padding: 20px; align-items: center; }
+  .coach-card img { width:140px; height:140px; object-fit: cover; border-radius: 8px; }
+  .coach-card h4 { font-family: var(--font-display); font-size: 26px; text-transform:uppercase; margin: 0 0 4px; letter-spacing:.02em; }
+  .coach-card .role { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color: var(--cfbc-red); font-weight:700; margin-bottom: 10px; }
+  .coach-card p { font-size:13px; color:#B4B4BC; line-height: 1.55; margin:0; }
+  @media (max-width:900px){ .coaches-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-screen-label="Page 3 · Beginner Safe + Guided" data-hero-treatment="photo">
+
+<div class="promo-strip">
+  <span class="dot"></span><b>Iron &amp; Ales</b> · Last Friday · Wackadoo Brewing · 3:30 PM <a href="#iron-ales">Learn More →</a>
+</div>
+
+<nav class="lp-nav">
+  <div class="lp-nav-inner">
+    <div class="lp-nav-links left">
+      <a href="#fears" class="active">Common Fears</a>
+      <a href="#steps">How It Works</a>
+      <a href="#coaches">Meet The Coaches</a>
+      <a href="#results">Beginner Stories</a>
+    </div>
+    <a href="#book" class="lp-logo-puck"><img src="assets/logo-cfbc.png" alt="CFBC"/></a>
+    <div class="lp-nav-links right">
+      <a href="tel:+17197772232">(719) 777-2232</a>
+      <a href="#book" class="lp-nav-cta" data-cta-slot>Book Your Free Intro</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="assets/photo-coach-squat.webp" alt="Coach helping member"/></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <span class="badge red"><span class="badge-dot"></span>Beginner Safe · Fully Coached</span>
+      <span class="badge">Every Workout Scalable</span>
+      <span class="badge gold"><span class="badge-dot"></span>Veteran Owned</span>
+    </div>
+    <h1 class="display-h1">
+      Never Feel Lost Or <em class="red-em">Intimidated</em> In A Gym Again.
+    </h1>
+    <p class="sub">You don't have to be fit to start. You won't be thrown to the wolves. Every workout is coached, every movement is scalable, and your first week is one-on-one. Real CrossFit. Real results. Zero guesswork.</p>
+    <div class="hero-ctas">
+      <a href="#book" class="btn btn-primary btn-lg btn-chev" data-cta-slot>Book Your Free Intro</a>
+      <a href="#steps" class="btn btn-ghost btn-lg">See How It Works →</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>1-on-1</strong>Your First Week</div>
+      <div><strong>3 Levels</strong>Every Workout Scaled</div>
+      <div><strong>0</strong>Fitness Required</div>
+      <div><strong>45 min</strong>No-Pressure Intro</div>
+    </div>
+  </div>
+</section>
+
+<section class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="cell"><div><div class="stars">★★★★★</div><div class="lbl">4.9 · 186 Google Reviews</div></div></div>
+    <div class="cell"><div><div class="num">68%</div><div class="lbl">Of members started<br/>with zero gym experience</div></div></div>
+    <div class="cell"><div><div class="num">L2</div><div class="lbl">CrossFit Level-2 certified<br/>coaches on every class</div></div></div>
+    <div class="cell"><div><div class="num">0</div><div class="lbl">Injuries reported<br/>in our on-ramp program</div></div></div>
+  </div>
+</section>
+
+<!-- FEARS -->
+<section id="fears" class="pad-y">
+  <div class="wrap">
+    <div style="max-width:780px;margin:0 auto 48px;text-align:center">
+      <div class="eyebrow" style="justify-content:center">The Truth Nobody Says Out Loud</div>
+      <h2 class="display-h2">What Most People Are Actually Afraid Of.</h2>
+      <p class="body-lg" style="margin-top:18px">Nine out of ten people who want to try CrossFit don't — because of these three fears. Here's exactly how CFBC solves each one before you even step on the floor.</p>
+    </div>
+    <div class="fears">
+      <div class="fear-card">
+        <div class="tag">Fear #1</div>
+        <h4>"I'm Not In Shape Enough."</h4>
+        <p class="fear-q">"I'll be the slowest one there. Everyone will stare. I'll hold back the class."</p>
+        <div class="fix">
+          <div class="lbl">The Fix</div>
+          <p>Your first 5 classes are built <b>for your body today</b>, not the athlete you imagine other members to be. 68% of our current members started exactly where you are: zero gym experience.</p>
+        </div>
+      </div>
+      <div class="fear-card">
+        <div class="tag">Fear #2</div>
+        <h4>"I'm Going To Get Hurt."</h4>
+        <p class="fear-q">"CrossFit is dangerous. People throw up. I'll wreck my back on day one."</p>
+        <div class="fix">
+          <div class="lbl">The Fix</div>
+          <p>Every rep of every movement gets a form check from a Level-2 certified coach. We <b>scale before we load</b>. Zero reported injuries in our on-ramp program. Ever.</p>
+        </div>
+      </div>
+      <div class="fear-card">
+        <div class="tag">Fear #3</div>
+        <h4>"I Won't Know What To Do."</h4>
+        <p class="fear-q">"There'll be a board with codes on it. I won't know the movements. I'll be lost."</p>
+        <div class="fix">
+          <div class="lbl">The Fix</div>
+          <p>Every class starts with a 10-minute whiteboard walkthrough. We <b>demonstrate every movement</b>, explain the "why," and your coach stays next to you if you need extra attention.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section id="steps" class="pad-y" style="background:#09090a">
+  <div class="wrap">
+    <div style="max-width:820px;margin:0 auto 40px;text-align:center">
+      <div class="eyebrow" style="justify-content:center">The On-Ramp Journey</div>
+      <h2 class="display-h2">From "I'm Nervous" To "I Belong Here" In 4 Steps.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <div>
+          <h3>Book Your Free No-Sweat Intro</h3>
+          <p>45 minutes, 1-on-1 with a coach. No workout. Just a conversation about your goals, your history, what's worked and what hasn't, and a full gym tour. You leave with a plan — not a sales pitch.</p>
+        </div>
+        <div class="dur">45 min · Free</div>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div>
+          <h3>Meet Your Coach 1-on-1</h3>
+          <p>Your first week is private training. We teach you the 9 foundational movements (squat, press, deadlift and their variations), build a baseline, and screen anything that needs modification. You set the pace.</p>
+        </div>
+        <div class="dur">Week 1 · Private</div>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div>
+          <h3>Join Your First Group Class</h3>
+          <p>When you're ready — not a day before. You'll know the whiteboard language, the movements, and a couple of other members. Every workout is scaled to 3 levels, so your Rx is always appropriate.</p>
+        </div>
+        <div class="dur">Week 2+</div>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <div>
+          <h3>Become A Regular</h3>
+          <p>By week 4, you'll be picking your favorite class time, learning people's names, and celebrating your first PR. By month 3, the version of you who was afraid to walk in will be a distant memory.</p>
+        </div>
+        <div class="dur">Month 2+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCALING EXPLANATION -->
+<section class="pad-y">
+  <div class="wrap">
+    <div style="max-width:820px;margin:0 auto 40px;text-align:center">
+      <div class="eyebrow" style="justify-content:center">How Scaling Actually Works</div>
+      <h2 class="display-h2">The Same Workout — <em class="red-em">Three Intensities.</em></h2>
+      <p class="body-lg" style="margin-top:16px">CrossFit isn't one-size-fits-all. Here's what a real CFBC workout looks like for three people of different fitness levels. Same class. Same timer. Everyone finishes together.</p>
+    </div>
+    <div class="scale-viz">
+      <div class="scale-card">
+        <div class="level">Level 1 · Foundations</div>
+        <h4>Sarah<br/>New Athlete</h4>
+        <div class="rep">Air Squat <span>15 reps</span></div>
+        <div class="rep">Ring Row <span>10 reps</span></div>
+        <div class="rep">PVC Press <span>10 reps</span></div>
+        <div class="rep">Row 200m <span>Any pace</span></div>
+        <div style="font-size:12px;color:#8E8E98;margin-top:14px;line-height:1.5">No external weight. Build patterns. Breath under control.</div>
+      </div>
+      <div class="scale-card mid">
+        <div class="level">Level 2 · Performance</div>
+        <h4>Dave<br/>6-Month Member</h4>
+        <div class="rep">Back Squat <span>10 × 95 lb</span></div>
+        <div class="rep">Pull-Up (band) <span>10 reps</span></div>
+        <div class="rep">DB Press <span>10 × 25 lb</span></div>
+        <div class="rep">Row 400m <span>Moderate</span></div>
+        <div style="font-size:12px;color:#8E8E98;margin-top:14px;line-height:1.5">Workouts start loading. Accessories introduced. Form still priority.</div>
+      </div>
+      <div class="scale-card">
+        <div class="level">Level 3 · Rx</div>
+        <h4>Marisol<br/>Competitor</h4>
+        <div class="rep">Back Squat <span>10 × 155 lb</span></div>
+        <div class="rep">Pull-Up (strict) <span>10 reps</span></div>
+        <div class="rep">DB Press <span>10 × 45 lb</span></div>
+        <div class="rep">Row 500m <span>Fast</span></div>
+        <div style="font-size:12px;color:#8E8E98;margin-top:14px;line-height:1.5">Full Rx. Timed. The competition version. You earn it.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px;font-size:14px;color:#8E8E98">Every workout. Every day. Scaled to exactly where you are today.</div>
+  </div>
+</section>
+
+<!-- COACHES -->
+<section id="coaches" class="pad-y" style="background:#09090a">
+  <div class="wrap">
+    <div style="max-width:760px;margin:0 0 40px">
+      <div class="eyebrow">Meet The People Who Will Coach You</div>
+      <h2 class="display-h2">The Coaches Who Take Beginners Seriously.</h2>
+      <p class="body-lg" style="margin-top:14px">You will not be handed off to an intern. You will not be ignored. These are the humans who will be watching your form, calling you by name, and celebrating your first pull-up.</p>
+    </div>
+    <div class="coaches-row">
+      <div class="coach-card">
+        <img src="assets/coach-clint.avif" alt="Clint Jordan"/>
+        <div>
+          <h4>Clint "Clyde" Jordan</h4>
+          <div class="role">Owner · USAF Retired (22 yrs)</div>
+          <p>CrossFit Level-2 · Strongman coach · has taken 400+ beginners from "I can't" to "I just did." Specializes in over-40 athletes and veterans. Will remember your dog's name on the second visit.</p>
+        </div>
+      </div>
+      <div class="coach-card">
+        <img src="assets/coach-lisa.avif" alt="Lisa Jordan"/>
+        <div>
+          <h4>Lisa "Bonnie" Jordan</h4>
+          <div class="role">Owner · Mobility + Movement</div>
+          <p>CrossFit Level-2 · Precision Nutrition certified · Leads our on-ramp. If you're nervous, you'll probably meet Lisa first. She's the reason beginners feel safe here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IRON & ALES -->
+<section id="iron-ales" class="pad-y">
+  <div class="wrap">
+    <div class="iron-ales">
+      <div>
+        <div class="label">◆ Safe. Scalable. Social.</div>
+        <h3>Even Iron &amp; Ales Is <em>Beginner Friendly.</em></h3>
+        <p>Our monthly partner WOD looks intimidating in Instagram posts — but every level shows up. New members are paired with veterans. Pints at Wackadoo after. It's the fastest way to stop feeling like "the new person" and start feeling like part of the gym.</p>
+        <a href="#book" class="btn btn-primary btn-chev" data-cta-slot>Book Your Free Intro</a>
+      </div>
+      <div class="iron-ales-facts">
+        <div class="ia-fact"><div class="k">Partner</div><div class="v">You're paired with a veteran member</div></div>
+        <div class="ia-fact"><div class="k">Scaled</div><div class="v">Walk if you need. Nobody notices. Nobody cares.</div></div>
+        <div class="ia-fact"><div class="k">Wackadoo</div><div class="v">Pints + food truck after. Soda's fine too.</div></div>
+        <div class="ia-fact"><div class="k">First Time?</div><div class="v">Bring a friend free. Most newcomers do.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE STACK -->
+<section class="pad-y">
+  <div class="wrap">
+    <div style="max-width:760px;margin:0 auto 40px;text-align:center">
+      <div class="eyebrow" style="justify-content:center">Your Membership</div>
+      <h2 class="display-h2">Everything A Beginner Needs. One Price.</h2>
+    </div>
+    <div class="stack-card" data-price-display style="max-width:860px;margin:0 auto">
+      <div class="stack-head">
+        <div>
+          <div class="eyebrow" style="margin-bottom:6px">Unlimited Membership</div>
+          <div class="stack-price">
+            <sup>$</sup><span data-price-num>140</span><small data-price-unit>/mo</small>
+          </div>
+          <div class="body" style="font-size:13px;color:#8E8E98;margin-top:6px" data-price-note>Billed monthly · Cancel anytime</div>
+        </div>
+        <a href="#book" class="btn btn-primary" data-cta-slot>Book Your Free Intro</a>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">1-on-1 On-Ramp Week<span>Private coaching before any group class. Learn the 9 foundational movements.</span></div><div class="val">Included</div></div>
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">Unlimited Scaled Classes<span>Every workout has 3 levels. Your coach picks yours.</span></div><div class="val">Included</div></div>
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">Level-2 Coaching Every Class<span>Form checks on every rep. No self-coaching.</span></div><div class="val">Included</div></div>
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">Iron &amp; Ales Monthly<span>Beginner-paired partner WOD + pints at Wackadoo</span></div><div class="val">Included</div></div>
+        <div class="stack-item"><div class="chk">✓</div><div class="lbl">Nutrition &amp; Goal Reviews<span>Quarterly 1-on-1 with your coach</span></div><div class="val">Included</div></div>
+      </div>
+      <div data-risk style="margin-top:24px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8E8E98;font-weight:700;text-align:center"><span style="color:#2BB673">✓</span> Free 1-on-1 Intro · No Obligation</div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<section class="urgency pad-y">
+  <div class="wrap urgency-inner">
+    <div>
+      <div class="eyebrow">On-Ramp Starts Monday</div>
+      <h2 class="display-h2">Next On-Ramp Cohort Starts Monday. Book This Week To Join.</h2>
+      <p class="body-lg" style="margin-top:14px">We cap beginner intros at <b style="color:#fff">12 per week</b> so every on-ramp athlete gets real 1-on-1 attention. Miss this week? You're starting the following Monday.</p>
+      <div class="countdown">
+        <div class="cd-cell"><div class="n">00</div><div class="l">Days</div></div>
+        <div class="cd-cell"><div class="n">00</div><div class="l">Hours</div></div>
+        <div class="cd-cell"><div class="n">00</div><div class="l">Min</div></div>
+        <div class="cd-cell"><div class="n">00</div><div class="l">Sec</div></div>
+      </div>
+    </div>
+    <div class="spots">
+      <h5><span data-spots-n>7</span> of 12 Intro Slots Left This Week</h5>
+      <div class="spots-bar"><div class="spots-bar-fill" style="width:42%"></div></div>
+      <small>Slots refill every Sunday at midnight MST</small>
+      <a href="#book" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-top:18px" data-cta-slot>Book Your Free Intro</a>
+      <div data-risk style="margin-top:12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8E8E98;font-weight:700;text-align:center"><span style="color:#2BB673">✓</span> Free 1-on-1 Intro · No Obligation</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="results" class="pad-y" style="background:#09090a">
+  <div class="wrap">
+    <div style="max-width:760px;margin:0 0 48px">
+      <div class="eyebrow">Started Exactly Where You Are</div>
+      <h2 class="display-h2">From Nervous Beginner To Regular — Real CFBC Members.</h2>
+    </div>
+    <div class="tests-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"I hadn't worked out in 6 years. I was scared to walk in. Lisa spent my entire first class teaching me just the air squat. By week 3, I was doing the full workout scaled. Nobody ever made me feel behind."</p>
+        <div class="test-person">
+          <div class="test-avatar init">NP</div>
+          <div>
+            <div class="test-name">Nina P.</div>
+            <div class="test-meta">Beginner · 7 months</div>
+            <div class="test-result">Zero injuries · First pull-up month 5</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"I'm 52. Had back surgery in 2019. I told Clint my history on day one. He rebuilt the entire first month around my body, not the program. I'm stronger now than I was at 35. No pain."</p>
+        <div class="test-person">
+          <div class="test-avatar init">RH</div>
+          <div>
+            <div class="test-name">Rick H.</div>
+            <div class="test-meta">Member · 18 months · Age 52</div>
+            <div class="test-result">Post-surgery · Full range</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"I grew up hating gym class. The 'boot camp' energy of other gyms scared me away. CFBC coaches were patient, quiet, and actually taught me. I stayed because nobody yelled. I stayed because they cared."</p>
+        <div class="test-person">
+          <div class="test-avatar init">TW</div>
+          <div>
+            <div class="test-name">Tessa W.</div>
+            <div class="test-meta">Beginner · 4 months</div>
+            <div class="test-result">First gym membership ever</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ / OBJECTION HANDLING -->
+<section class="pad-y">
+  <div class="wrap">
+    <div style="max-width:760px;margin:0 0 40px">
+      <div class="eyebrow">Still Nervous?</div>
+      <h2 class="display-h2">The Questions Every Beginner Asks Us.</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item" open>
+        <summary>Do I need to be in shape to start?</summary>
+        <p>No. The opposite, actually. 68% of our members started with zero gym experience. Our on-ramp is designed for day-one bodies. We meet you where you are.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if I'm the oldest / slowest / heaviest?</summary>
+        <p>Our members range from 18 to 71. Every WOD scales to 3 levels. Nobody finishes "last" — we finish together. Most beginners report being surprised by how quickly this stops being a concern.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is CrossFit safe?</summary>
+        <p>Done badly, any workout is unsafe. Done with coaching, it's one of the safest ways to train. We have a zero-injury record on our on-ramp because we scale before we load. Always.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What should I wear / bring?</summary>
+        <p>Athletic clothes you can move in. Flat shoes (sneakers are fine — no running shoes for lifting days, but we'll guide you). A water bottle. That's it. We provide everything else.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I cancel if it's not a fit?</summary>
+        <p>Anytime. No contract, no cancellation fee, no ghost-billing. If CFBC isn't right in 30 days, we part as friends. Most don't — but the door's always open.</p>
+      </details>
+      <details class="faq-item">
+        <summary>I've tried gyms before and always quit. Why will this work?</summary>
+        <p>Because it's not about willpower. It's about environment. Our retention rate is 87% after year 1 because the coaching + community architecture does the heavy lifting. You just have to show up the first day.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section id="book" class="pad-y" style="background:#09090a">
+  <div class="wrap">
+    <div style="max-width:720px;margin:0 0 40px">
+      <div class="eyebrow">Your First Step</div>
+      <h2 class="display-h2">Book Your <em class="red-em">No-Pressure</em> Intro.</h2>
+      <p class="body-lg" style="margin-top:14px">No workout. No sweat. No sales pitch. Just 45 minutes with a coach who will show you the gym and answer every question you have.</p>
+    </div>
+    <div class="book-block">
+      <div class="book-info">
+        <h3 class="display-h3">What Won't Happen</h3>
+        <p class="body">You won't be asked to work out. You won't be weighed. You won't be pressured. You won't be called or emailed after. This is a tour and a conversation — nothing more.</p>
+        <ul>
+          <li>No workout, no burpees, no "try a class today"</li>
+          <li>No scale, no body-fat test, no measurements</li>
+          <li>No "limited-time" pressure, no upsells</li>
+          <li>Meet the space, the coaches, and the schedule</li>
+          <li>Leave, think about it, decide on your time</li>
+        </ul>
+        <div style="margin-top:28px;padding:18px;background:#0e0e10;border:1px dashed rgba(245,183,0,.3);border-radius:8px">
+          <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cfbc-gold);font-weight:700;margin-bottom:6px">⚑ Still nervous to book?</div>
+          <div style="font-size:14px;color:#D6D6DB;line-height:1.55">Text us first at <a href="sms:+17197772232" style="color:#fff;text-decoration:underline;text-underline-offset:3px">(719) 777-2232</a>. Ask anything. We'll answer like a human, not a sales rep.</div>
+        </div>
+      </div>
+      <div class="cal">
+        <div class="cal-head">
+          <h4 data-cal-head>April 2026</h4>
+          <div class="nav">
+            <button data-cal-prev aria-label="prev">‹</button>
+            <button data-cal-next aria-label="next">›</button>
+          </div>
+        </div>
+        <div class="cal-grid"></div>
+        <div class="cal-slots"></div>
+        <div class="cal-foot">
+          <div class="sel">Pick a date &amp; time</div>
+          <button class="btn btn-primary cal-confirm" disabled style="opacity:.45" data-cta-slot>Book Your Free Intro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="eyebrow" style="justify-content:center">One Thing</div>
+  <h2 class="display-h2">You Don't Have To Be Ready. <em class="red-em">You Just Have To Start.</em></h2>
+  <p class="body-lg">Every member of CFBC walked in on day one as nervous as you feel right now. The coaches here are good at one specific thing: making beginners feel safe, guided, and — eventually — unstoppable.</p>
+  <div class="btns">
+    <a href="#book" class="btn btn-primary btn-lg btn-chev" data-cta-slot>Book Your Free Intro</a>
+    <a href="tel:+17197772232" class="btn btn-ghost btn-lg">Call / Text Us</a>
+  </div>
+  <div data-risk class="risk"><span>✓</span> Free 1-on-1 Intro · No Obligation</div>
+</section>
+
+<footer class="lp-footer">
+  <div class="lp-footer-inner">
+    <div class="brand">
+      <img src="assets/logo-cfbc.png" class="logo" alt="CrossFit Bonnie & Clyde"/>
+      <div style="color:#8E8E98;font-size:13px;line-height:1.6;max-width:300px">Community-driven, fitness-focused. Veteran-owned CrossFit box in Colorado Springs since 2017.</div>
+      <div class="socials">
+        <a href="#"><img src="assets/icon-social-fb.png" alt="Facebook"/></a>
+        <a href="#"><img src="assets/icon-social-ig.png" alt="Instagram"/></a>
+        <a href="#"><img src="assets/icon-social-gb.png" alt="Google"/></a>
+      </div>
+    </div>
+    <div><h5>Visit</h5><ul><li>706 Arrawanna St</li><li>Colorado Springs, CO 80909</li><li><a href="tel:+17197772232">(719) 777-2232</a></li></ul></div>
+    <div><h5>Schedule</h5><ul><li>Mon–Fri · 4am–8pm</li><li>Sat · 7am–12pm</li><li>Open Gym 24/7</li></ul></div>
+    <div><h5>Pages</h5><ul><li><a href="index.html">All Landing Pages</a></li><li><a href="page-1-best-gym.html">Best Gym Page</a></li><li><a href="page-2-community.html">Community Page</a></li></ul></div>
+  </div>
+  <div class="lp-footer-bottom">
+    <div>© 2026 CrossFit Bonnie &amp; Clyde · Colorado Springs, CO</div>
+    <div>Veteran-owned · Est. 2017</div>
+  </div>
+</footer>
+
+<a href="#book" class="sticky-pill" data-cta-slot><span class="blink"></span>Book Your Free Intro</a>
+<div class="sticky-bar">
+  <div class="info"><b>$140/mo</b> <span>Free No-Sweat Intro</span></div>
+  <a href="#book" class="btn btn-primary" data-cta-slot>Book</a>
+</div>
+
+<script>
+window.CFBC_PAGE_CONFIG = {
+  pageLabel: 'Page 3 · Beginner Safe + Guided',
+  pageAngle: 'Fear Removal · "You\'ll be guided every step"',
+  tweakDefaults: /*EDITMODE-BEGIN*/{"headline":0,"hero_treatment":"photo","iron_ales_banner":true,"cta_copy":"book_intro","price_display":"monthly","risk_reversal":"free_trial"}/*EDITMODE-END*/,
+  headlines: [
+    { label:'Never Feel Lost Or Intimidated', html:'Never Feel Lost Or <em class="red-em">Intimidated</em> In A Gym Again.', sub:'You don\'t have to be fit to start. You won\'t be thrown to the wolves. Every workout is coached, every movement is scalable, and your first week is one-on-one. Real CrossFit. Real results. Zero guesswork.' },
+    { label:'Out Of Shape? Start Here', html:'Out Of Shape? <em class="red-em">Start Here.</em>', sub:'CFBC is built for day-one bodies. Private coaching for your first week. Every workout scaled to three levels. Zero injuries in our on-ramp program.' },
+    { label:'CrossFit For People Who Are Scared Of CrossFit', html:'CrossFit For <em class="red-em">People Who Are Scared</em> Of CrossFit.', sub:'No yelling. No ego. No "Rx-or-nothing." Just patient coaching, scaled workouts, and 68% of our members who started exactly where you are.' },
+    { label:'You\'ll Be Guided Every Step', html:'You\'ll Be <em class="red-em">Guided</em> Every Step Of The Way.', sub:'From your first No-Sweat Intro to your first PR — a Level-2 coach is next to you, watching every rep, modifying every movement.' },
+    { label:'The Safest Hour Of Your Day', html:'The Safest Hour Of Your Day.', sub:'CrossFit has a reputation. We don\'t earn it. Zero reported injuries in our on-ramp. Scaled workouts. Proven coaching system. Start where you are.' },
+    { label:'You Don\'t Have To Be Ready', html:'You Don\'t Have To Be Ready. <em class="red-em">You Just Have To Start.</em>', sub:'Every member of CFBC was nervous on day one. The coaches here are good at one thing: making beginners feel safe, guided, and eventually unstoppable.' },
+    { label:'The Beginner-Safe CrossFit Box', html:'The Beginner-Safe CrossFit Box In <em class="red-em">Colorado Springs.</em>', sub:'Fully coached. Fully scalable. Fully patient. $140/month unlimited. Veteran-owned since 2017.' },
+    { label:'No Yelling. No Ego.', html:'No Yelling. <em class="red-em">No Ego.</em> Just Coaching.', sub:'We don\'t shout PRs. We don\'t measure you against other members. We teach the movement, scale the load, and celebrate your version of the workout.' }
+  ],
+  copylab: {
+    ctas: [
+      'Book Your No-Pressure Intro',
+      'Start With A Free 1-on-1',
+      'Meet A Coach (No Workout)',
+      'I\'m Ready To Try This',
+      'Show Me How It Works',
+      'Book My Safe First Step',
+      'Claim My Beginner Intro Slot'
+    ],
+    ironAles: [
+      'Even Iron & Ales Is Beginner Friendly. — hero framing',
+      'Partner WOD — new members paired with veterans who know the ropes.',
+      'Scaled to every level. You can walk the run. You can use a PVC pipe. Nobody notices. Nobody cares.',
+      'Pints at Wackadoo after. Sodas also fine. The beer isn\'t the point; the people are.',
+      'First-time guest free. Most of them book an intro the next Monday.'
+    ],
+    objections: [
+      { q:'I\'m too out of shape for CrossFit.', a:'Our on-ramp is built for day-one bodies. Week 1 is 1-on-1. Week 2 you join a group class scaled to you. 68% of current members started with zero gym experience. You\'re not the exception — you\'re the norm.' },
+      { q:'I\'m going to get hurt.', a:'Every rep gets a form check. We scale before we load. We\'ve had zero reported injuries in our on-ramp program. The bigger risk is another year of not training.' },
+      { q:'I don\'t know what any of the words mean (AMRAP, EMOM, Rx...).', a:'We do a 10-minute whiteboard walkthrough before every class. We demo every movement. Your coach stays near you if you need extra help. By week 2, the vocabulary is yours.' },
+      { q:'I\'m too old / injured / post-surgery.', a:'Our members range from 18 to 71. We modify around injuries. Clint is USAF retired (22 years) and specializes in over-40 and recovery athletes. Tell us your history — we\'ll build the plan around it.' },
+      { q:'I don\'t want to be the slowest.', a:'There is no "slowest." Every workout scales to three levels. Same timer, same class, different weights and reps. You\'ll never feel like you\'re holding anyone up.' },
+      { q:'What if I try it and I hate group classes?', a:'Your first week is 1-on-1 private training. You don\'t join group until you\'re ready. And if group just isn\'t for you, we offer personal training + open gym options too.' }
+    ],
+    visuals: [
+      'Hero: coach demonstrating a movement to a clearly-new-to-this member. Patient body language. Close-up, warm.',
+      'Fears: 3-card layout with fear → reframe. Red accent on "the fix." Easy scan.',
+      'Steps: numbered journey, 1–4, with time badges (45 min / Week 1 / Week 2+ / Month 2+).',
+      'Scaling viz: 3-column comparison showing same workout at three levels. Makes scaling concrete.',
+      'Coaches: headshots of Clint + Lisa, specific role callouts. Humanize.',
+      'Testimonials: age, medical history, "first gym ever" — beginner-specific proof.'
+    ],
+    trust: [
+      'Zero reported injuries in on-ramp program',
+      '68% of members started with zero gym experience',
+      'Level-2 CrossFit certified coaches',
+      'Named founder coaches with biographical depth',
+      'Age-range proof: 18 to 71',
+      'Post-injury / post-surgery testimonials',
+      '"No pressure" guarantee + free intro',
+      'No contract · Cancel anytime'
+    ]
+  }
+};
+</script>
+<script src="shared/lp.js"></script>
+</body>
+</html>

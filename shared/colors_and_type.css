@@ -1,0 +1,219 @@
+/* ============================================================
+   CFBC Design System — Colors & Type
+   CrossFit Bonnie & Clyde, Colorado Springs, CO
+   Source: https://www.crossfitbonnieandclyde.com
+   ============================================================ */
+
+/* ---------- Font imports (Google Fonts substitutes) ----------
+   Exact brand fonts could not be extracted from the Webflow site
+   source. The CFBC wordmark uses a heavy condensed italic sans
+   (Impact-family). Closest free substitutes from Google Fonts:
+     - Display: Bebas Neue / Oswald (heavy condensed)
+     - Body:    Barlow (industrial humanist sans, Webflow-common)
+     - Accent:  Archivo Black (for blocky emphasis)
+   Flag: ask CFBC for brand fonts if pixel-perfect match needed.
+---------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Archivo+Black&display=swap");
+
+:root {
+  /* =========== COLORS =========== */
+
+  /* Brand core — pulled from the CFBC logo / site */
+  --cfbc-red:        #E63946;   /* primary brand red (logo, CTA) */
+  --cfbc-red-dark:   #C0232F;   /* hover / press */
+  --cfbc-red-deep:   #8E1620;   /* shadow / focus ring */
+  --cfbc-gold:       #F5B700;   /* Colorado "C" dot */
+  --cfbc-gold-warm:  #E6A800;   /* hover / press on gold */
+
+  /* Neutrals — dark-first gym aesthetic */
+  --cfbc-black:      #0B0B0C;   /* page bg */
+  --cfbc-ink:        #141416;   /* cards on black */
+  --cfbc-charcoal:   #1F1F23;   /* elevated surface */
+  --cfbc-graphite:   #2A2A30;   /* border on dark */
+  --cfbc-steel:      #4A4A52;   /* muted text on dark */
+  --cfbc-silver:     #8E8E98;   /* tertiary text */
+  --cfbc-fog:        #C9C9D0;   /* hairlines on light */
+  --cfbc-bone:       #EDEDEF;   /* light surface */
+  --cfbc-paper:      #F7F7F5;   /* warm off-white background */
+  --cfbc-white:      #FFFFFF;
+
+  /* Semantic — foreground on dark (default mode) */
+  --fg-1: var(--cfbc-white);          /* primary text */
+  --fg-2: #D6D6DB;                     /* secondary body */
+  --fg-3: var(--cfbc-silver);          /* muted meta */
+  --fg-inverse: var(--cfbc-black);     /* on light surfaces */
+
+  /* Semantic — background */
+  --bg-page:       var(--cfbc-black);
+  --bg-surface:    var(--cfbc-ink);
+  --bg-elevated:   var(--cfbc-charcoal);
+  --bg-accent:     var(--cfbc-red);
+  --bg-light:      var(--cfbc-paper);
+
+  /* Semantic — borders */
+  --border-subtle:  rgba(255,255,255,0.08);
+  --border-default: rgba(255,255,255,0.14);
+  --border-strong:  rgba(255,255,255,0.28);
+  --border-light:   #E2E2DE;
+
+  /* Status */
+  --status-success: #2BB673;
+  --status-warn:    var(--cfbc-gold);
+  --status-danger:  var(--cfbc-red);
+
+  /* =========== TYPE — families =========== */
+  --font-display: "Bebas Neue", "Oswald", "Arial Narrow", Impact, sans-serif;
+  --font-display-italic: "Oswald", "Arial Narrow", Impact, sans-serif; /* use italic + weight 700 */
+  --font-body:    "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --font-accent:  "Archivo Black", "Barlow", sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* =========== TYPE — scale (desktop-first) =========== */
+  --fs-hero:   clamp(56px, 9vw, 128px);  /* "Community Driven & Fitness Focused" */
+  --fs-h1:     clamp(44px, 6vw, 84px);
+  --fs-h2:     clamp(34px, 4.2vw, 60px);
+  --fs-h3:     clamp(24px, 2.4vw, 34px);
+  --fs-h4:     20px;
+  --fs-eyebrow: 14px;   /* "The best hour of your day" */
+  --fs-body-lg: 20px;
+  --fs-body:    17px;
+  --fs-body-sm: 15px;
+  --fs-caption: 13px;
+  --fs-tiny:    11px;
+
+  /* Line-height */
+  --lh-tight:  0.92;     /* display headlines */
+  --lh-heading: 1.05;
+  --lh-body:   1.55;
+  --lh-meta:   1.35;
+
+  /* Letter-spacing */
+  --ls-tight:  -0.02em;
+  --ls-normal: 0;
+  --ls-wide:   0.08em;
+  --ls-xwide:  0.18em;   /* eyebrows, tiny labels */
+
+  /* Weights */
+  --fw-reg: 400;
+  --fw-med: 500;
+  --fw-sb:  600;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  /* =========== SPACING =========== */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 160px;
+
+  /* =========== RADII =========== */
+  --radius-0: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;          /* buttons, inputs */
+  --radius-3: 8px;          /* cards */
+  --radius-4: 12px;
+  --radius-pill: 999px;
+
+  /* =========== SHADOWS =========== */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.35);
+  --shadow-md: 0 10px 24px rgba(0,0,0,0.45);
+  --shadow-lg: 0 24px 48px rgba(0,0,0,0.55);
+  --shadow-red: 0 10px 30px rgba(230,57,70,0.35);
+  --shadow-inset: inset 0 0 0 1px rgba(255,255,255,0.06);
+
+  /* =========== MOTION =========== */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+
+  /* =========== LAYOUT =========== */
+  --container-max: 1280px;
+  --container-pad: clamp(20px, 4vw, 64px);
+}
+
+/* ---------- Base element styles ---------- */
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-normal);
+  line-height: var(--lh-heading);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Semantic type utility classes */
+.t-hero {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  text-transform: uppercase;
+}
+.t-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-heading);
+  text-transform: uppercase;
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  text-transform: uppercase;
+}
+.t-h3 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.t-eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--fw-sb);
+  font-size: var(--fs-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-xwide);
+  color: var(--cfbc-red);
+}
+.t-body-lg  { font-size: var(--fs-body-lg); line-height: 1.5; color: var(--fg-2); }
+.t-body     { font-size: var(--fs-body);    line-height: var(--lh-body); color: var(--fg-2); }
+.t-body-sm  { font-size: var(--fs-body-sm); line-height: 1.55; color: var(--fg-3); }
+.t-caption  { font-size: var(--fs-caption); line-height: var(--lh-meta); color: var(--fg-3); }
+.t-mono     { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; }
+
+/* Stencil / outlined display effect — used on "HIGH INTENSITY", "EXPERT COACHING" headline lockups */
+.t-outline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--cfbc-red);
+  text-stroke: 2px var(--cfbc-red);
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+}

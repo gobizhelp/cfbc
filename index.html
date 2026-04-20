@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CFBC — Landing Pages</title>
+<meta name="description" content="CrossFit Bonnie &amp; Clyde landing pages — three decision-stage angles for Colorado Springs athletes." />
+<link rel="stylesheet" href="shared/colors_and_type.css" />
+<link rel="stylesheet" href="shared/lp.css" />
+<style>
+  .index-hero {
+    position: relative; isolation: isolate; overflow: hidden;
+    padding: 120px 32px 96px;
+    text-align: center;
+  }
+  .index-hero::before { content:""; position:absolute; inset:0; z-index:-2; background: url('assets/photo-weights.webp') center/cover; }
+  .index-hero::after  { content:""; position:absolute; inset:0; z-index:-1; background: linear-gradient(180deg, rgba(11,11,12,.7), rgba(11,11,12,.95)); }
+  .index-hero h1 { max-width: 960px; margin: 0 auto 18px; }
+  .index-hero p  { max-width: 640px; margin: 0 auto; }
+
+  .page-cards { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .page-card {
+    background: var(--bg-surface); border: 1px solid rgba(255,255,255,.08); border-radius: 14px;
+    overflow: hidden; display: flex; flex-direction: column;
+    transition: transform 220ms var(--ease-out), border-color 220ms;
+  }
+  .page-card:hover { transform: translateY(-4px); border-color: rgba(230,57,70,.45); }
+  .page-card .cover { aspect-ratio: 16/10; background-size: cover; background-position: center; position: relative; }
+  .page-card .cover::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(11,11,12,.2), rgba(11,11,12,.85)); }
+  .page-card .cover .num {
+    position: absolute; top: 18px; left: 20px; z-index: 1;
+    font-family: var(--font-display); font-size: 56px; line-height: 1; color: var(--cfbc-red); letter-spacing: .01em;
+  }
+  .page-card .cover .tag {
+    position: absolute; top: 22px; right: 20px; z-index: 1;
+    font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #fff; font-weight: 700;
+    padding: 6px 12px; background: rgba(0,0,0,.5); backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,.18); border-radius: 999px;
+  }
+  .page-card .body { padding: 28px 26px 30px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+  .page-card h3 { font-family: var(--font-display); font-size: 28px; line-height: 1.05; letter-spacing: .02em; text-transform: uppercase; margin: 0; }
+  .page-card .summary { color: #B4B4BC; font-size: 15px; line-height: 1.55; margin: 0; }
+  .page-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  .page-card ul li { display: grid; grid-template-columns: 16px 1fr; gap: 10px; font-size: 13px; color: #D6D6DB; }
+  .page-card ul li::before { content: "✓"; color: var(--cfbc-red); font-weight: 700; }
+  .page-card .open {
+    margin-top: auto; padding: 14px 20px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
+    background: var(--cfbc-red); color: #fff; border-radius: 4px; text-align: center;
+    transition: background 220ms;
+  }
+  .page-card .open:hover { background: var(--cfbc-red-dark); }
+
+  .kit {
+    margin-top: 80px; padding: 40px; background: #0e0e10; border: 1px solid rgba(255,255,255,.06); border-radius: 14px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;
+  }
+  .kit h3 { font-family: var(--font-display); font-size: 32px; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 12px; }
+  .kit-files { display: grid; gap: 10px; }
+  .kit-file {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center;
+    background: #17171a; border: 1px solid rgba(255,255,255,.06); border-radius: 8px; padding: 14px 18px;
+  }
+  .kit-file .ico { font-family: var(--font-display); color: var(--cfbc-red); font-size: 18px; letter-spacing: .02em; }
+  .kit-file .name { font-size: 14px; color: #fff; font-weight: 600; }
+  .kit-file .name span { display: block; font-size: 12px; color: #8E8E98; font-weight: 400; margin-top: 2px; }
+  .kit-file .meta { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #8E8E98; font-weight: 700; }
+
+  @media (max-width: 1024px) {
+    .page-cards { grid-template-columns: 1fr; }
+    .kit { grid-template-columns: 1fr; gap: 28px; padding: 28px; }
+  }
+</style>
+</head>
+<body data-screen-label="Index · CFBC Landing Pages">
+
+<div class="promo-strip">
+  <span class="dot"></span><b>Iron &amp; Ales</b> · Last Friday · Wackadoo Brewing · 3:30 PM <a href="page-1-best-gym.html#iron-ales">Learn More →</a>
+</div>
+
+<nav class="lp-nav">
+  <div class="lp-nav-inner">
+    <div class="lp-nav-links left">
+      <a href="#pages" class="active">Pages</a>
+      <a href="#system">Design System</a>
+    </div>
+    <a href="#pages" class="lp-logo-puck"><img src="assets/logo-cfbc.png" alt="CFBC"/></a>
+    <div class="lp-nav-links right">
+      <a href="tel:+17197772232">(719) 777-2232</a>
+      <a href="page-1-best-gym.html#book" class="lp-nav-cta">Book Your Free Intro</a>
+    </div>
+  </div>
+</nav>
+
+<section class="index-hero">
+  <div class="eyebrow" style="justify-content:center">CrossFit Bonnie &amp; Clyde · Decision-Stage Campaign</div>
+  <h1 class="display-h1">Three Angles. <em class="red-em">One Gym.</em> Pick A Door.</h1>
+  <p class="body-lg">Each page is a different conversion angle for a different visitor — status &amp; logic, community &amp; belonging, or fear removal. Same design system, same membership, same $140/month.</p>
+</section>
+
+<section id="pages" class="pad-y">
+  <div class="wrap">
+    <div class="page-cards">
+      <a class="page-card" href="page-1-best-gym.html">
+        <div class="cover" style="background-image:url('assets/photo-gym.webp')">
+          <div class="num">01</div>
+          <span class="tag">Status + Logic</span>
+        </div>
+        <div class="body">
+          <h3>Best Gym Near You</h3>
+          <p class="summary">For the researcher who Googled "best CrossFit gym Colorado Springs." Proof, comparison, value stack.</p>
+          <ul>
+            <li>Hero with ranked proof + 4-stat meta</li>
+            <li>Value stack · $140 vs $660 stacked value</li>
+            <li>Side-by-side vs big-box &amp; average box</li>
+            <li>Results testimonials with quantified outcomes</li>
+          </ul>
+          <span class="open">Open Page 01 →</span>
+        </div>
+      </a>
+      <a class="page-card" href="page-2-community.html">
+        <div class="cover" style="background-image:url('assets/action-3.avif')">
+          <div class="num">02</div>
+          <span class="tag">Belonging + Consistency</span>
+        </div>
+        <div class="body">
+          <h3>Community &amp; Accountability</h3>
+          <p class="summary">For the visitor who's tried-and-quit. "Right room beats more willpower." Retention as the product.</p>
+          <ul>
+            <li>Before / after "what you've had" contrast</li>
+            <li>Community grid + named-coach proof</li>
+            <li>Iron &amp; Ales as the retention ritual</li>
+            <li>5-step journey to "regular"</li>
+          </ul>
+          <span class="open">Open Page 02 →</span>
+        </div>
+      </a>
+      <a class="page-card" href="page-3-beginner.html">
+        <div class="cover" style="background-image:url('assets/photo-coach-squat.webp')">
+          <div class="num">03</div>
+          <span class="tag">Fear Removal</span>
+        </div>
+        <div class="body">
+          <h3>Beginner Safe + Guided</h3>
+          <p class="summary">For the nervous first-timer. "You don't have to be ready." Three fears named and solved.</p>
+          <ul>
+            <li>3 fears · reframed with the fix</li>
+            <li>4-step on-ramp (45 min → month 2)</li>
+            <li>Same-workout scaling at three levels</li>
+            <li>Coach bios + beginner-specific testimonials</li>
+          </ul>
+          <span class="open">Open Page 03 →</span>
+        </div>
+      </a>
+    </div>
+
+    <div id="system" class="kit">
+      <div>
+        <div class="eyebrow">Shared System</div>
+        <h3>One Kit. Three Angles.</h3>
+        <p class="body">Every page loads the same design tokens, layout system, and conversion-oriented components — countdown, spot decay, calendar, sticky CTA, and tweaks panel. Swap a headline, price, CTA, or risk-reversal from the tweaks panel on any page.</p>
+      </div>
+      <div class="kit-files">
+        <div class="kit-file"><span class="ico">CSS</span><span class="name">shared/colors_and_type.css<span>Brand tokens · type scale · spacing</span></span><span class="meta">Design tokens</span></div>
+        <div class="kit-file"><span class="ico">CSS</span><span class="name">shared/lp.css<span>Layout · components · responsive</span></span><span class="meta">Components</span></div>
+        <div class="kit-file"><span class="ico">JS</span><span class="name">shared/lp.js<span>Tweaks · countdown · spots · calendar</span></span><span class="meta">Behavior</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="lp-footer">
+  <div class="lp-footer-inner">
+    <div class="brand">
+      <img src="assets/logo-cfbc.png" class="logo" alt="CrossFit Bonnie & Clyde"/>
+      <div style="color:#8E8E98;font-size:13px;line-height:1.6;max-width:300px">Community-driven, fitness-focused. Veteran-owned CrossFit box in Colorado Springs since 2017.</div>
+      <div class="socials">
+        <a href="#"><img src="assets/icon-social-fb.png" alt="Facebook"/></a>
+        <a href="#"><img src="assets/icon-social-ig.png" alt="Instagram"/></a>
+        <a href="#"><img src="assets/icon-social-gb.png" alt="Google"/></a>
+      </div>
+    </div>
+    <div><h5>Visit</h5><ul><li>706 Arrawanna St</li><li>Colorado Springs, CO 80909</li><li><a href="tel:+17197772232">(719) 777-2232</a></li></ul></div>
+    <div><h5>Schedule</h5><ul><li>Mon–Fri · 4am–8pm</li><li>Sat · 7am–12pm</li><li>Open Gym 24/7</li></ul></div>
+    <div><h5>Pages</h5><ul><li><a href="page-1-best-gym.html">Best Gym Page</a></li><li><a href="page-2-community.html">Community Page</a></li><li><a href="page-3-beginner.html">Beginner Page</a></li></ul></div>
+  </div>
+  <div class="lp-footer-bottom">
+    <div>© 2026 CrossFit Bonnie &amp; Clyde · Colorado Springs, CO</div>
+    <div>Veteran-owned · Est. 2017</div>
+  </div>
+</footer>
+
+</body>
+</html>
