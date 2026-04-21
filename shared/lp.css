@@ -182,6 +182,9 @@ em.red-em { font-style: italic; color: var(--cfbc-red); font-weight: 700; }
 .pillar h3 { margin-bottom: 8px; }
 .pillar p { color: #B4B4BC; font-size: 15px; line-height: 1.55; margin: 0; }
 
+/* ---------- VALUE SPLIT (page-1 value stack layout) ---------- */
+.value-split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+
 /* ---------- VS COMPARISON TABLE ---------- */
 .vs-table {
   width: 100%; border-collapse: separate; border-spacing: 0;
@@ -493,7 +496,7 @@ em.red-em { font-style: italic; color: var(--cfbc-red); font-weight: 700; }
 @media (max-width: 1024px) {
   .pillars { grid-template-columns: repeat(2, 1fr); }
   .tests-grid { grid-template-columns: 1fr 1fr; }
-  .urgency-inner, .iron-ales, .book-block { grid-template-columns: 1fr; gap: 32px; }
+  .urgency-inner, .iron-ales, .book-block, .value-split { grid-template-columns: 1fr; gap: 32px; }
   .faq { grid-template-columns: 1fr; }
   .lp-footer-inner { grid-template-columns: 1fr 1fr; }
   .pad-y { padding-top: 72px; padding-bottom: 72px; }
