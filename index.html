@@ -3,191 +3,498 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>CFBC — Landing Pages</title>
-<meta name="description" content="CrossFit Bonnie &amp; Clyde landing pages — three decision-stage angles for Colorado Springs athletes." />
+<title>CFBC — Landing Page Proposal</title>
 <link rel="stylesheet" href="shared/colors_and_type.css" />
-<link rel="stylesheet" href="shared/lp.css" />
 <style>
-  .index-hero {
-    position: relative; isolation: isolate; overflow: hidden;
-    padding: 120px 32px 96px;
-    text-align: center;
-  }
-  .index-hero::before { content:""; position:absolute; inset:0; z-index:-2; background: url('assets/photo-weights.webp') center/cover; }
-  .index-hero::after  { content:""; position:absolute; inset:0; z-index:-1; background: linear-gradient(180deg, rgba(11,11,12,.7), rgba(11,11,12,.95)); }
-  .index-hero h1 { max-width: 960px; margin: 0 auto 18px; }
-  .index-hero p  { max-width: 640px; margin: 0 auto; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; background: var(--bg-page); color: var(--fg-1); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-  .page-cards { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .page-card {
-    background: var(--bg-surface); border: 1px solid rgba(255,255,255,.08); border-radius: 14px;
-    overflow: hidden; display: flex; flex-direction: column;
-    transition: transform 220ms var(--ease-out), border-color 220ms;
-  }
-  .page-card:hover { transform: translateY(-4px); border-color: rgba(230,57,70,.45); }
-  .page-card .cover { aspect-ratio: 16/10; background-size: cover; background-position: center; position: relative; }
-  .page-card .cover::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(11,11,12,.2), rgba(11,11,12,.85)); }
-  .page-card .cover .num {
-    position: absolute; top: 18px; left: 20px; z-index: 1;
-    font-family: var(--font-display); font-size: 56px; line-height: 1; color: var(--cfbc-red); letter-spacing: .01em;
-  }
-  .page-card .cover .tag {
-    position: absolute; top: 22px; right: 20px; z-index: 1;
-    font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #fff; font-weight: 700;
-    padding: 6px 12px; background: rgba(0,0,0,.5); backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,.18); border-radius: 999px;
-  }
-  .page-card .body { padding: 28px 26px 30px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
-  .page-card h3 { font-family: var(--font-display); font-size: 28px; line-height: 1.05; letter-spacing: .02em; text-transform: uppercase; margin: 0; }
-  .page-card .summary { color: #B4B4BC; font-size: 15px; line-height: 1.55; margin: 0; }
-  .page-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-  .page-card ul li { display: grid; grid-template-columns: 16px 1fr; gap: 10px; font-size: 13px; color: #D6D6DB; }
-  .page-card ul li::before { content: "✓"; color: var(--cfbc-red); font-weight: 700; }
-  .page-card .open {
-    margin-top: auto; padding: 14px 20px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
-    background: var(--cfbc-red); color: #fff; border-radius: 4px; text-align: center;
-    transition: background 220ms;
-  }
-  .page-card .open:hover { background: var(--cfbc-red-dark); }
+  .eyebrow { font-size: 11px; letter-spacing:.22em; text-transform: uppercase; color: var(--cfbc-red); font-weight:700; display:inline-flex; align-items:center; gap:10px; }
+  .eyebrow::before { content:''; width:28px; height:1px; background: var(--cfbc-red); }
+  .eyebrow.center { justify-content:center; }
+  h1, h2, h3, h4 { font-family: var(--font-display); text-transform: uppercase; font-style: italic; font-weight: 900; letter-spacing: .01em; margin:0; }
+  em.r { font-style: italic; color: var(--cfbc-red); }
+  .body { font-size: 16px; line-height: 1.6; color: #B4B4BC; }
 
-  .kit {
-    margin-top: 80px; padding: 40px; background: #0e0e10; border: 1px solid rgba(255,255,255,.06); border-radius: 14px;
-    display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;
-  }
-  .kit h3 { font-family: var(--font-display); font-size: 32px; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 12px; }
-  .kit-files { display: grid; gap: 10px; }
-  .kit-file {
-    display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center;
-    background: #17171a; border: 1px solid rgba(255,255,255,.06); border-radius: 8px; padding: 14px 18px;
-  }
-  .kit-file .ico { font-family: var(--font-display); color: var(--cfbc-red); font-size: 18px; letter-spacing: .02em; }
-  .kit-file .name { font-size: 14px; color: #fff; font-weight: 600; }
-  .kit-file .name span { display: block; font-size: 12px; color: #8E8E98; font-weight: 400; margin-top: 2px; }
-  .kit-file .meta { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #8E8E98; font-weight: 700; }
+  /* ---------- HERO ---------- */
+  .hero { padding: 88px 0 64px; border-bottom: 1px solid rgba(255,255,255,.08); position: relative; overflow: hidden; }
+  .hero::before { content:''; position:absolute; right:-120px; top:-120px; width: 480px; height:480px; border-radius:50%; background: radial-gradient(circle, rgba(230,57,70,.18), transparent 70%); pointer-events:none; }
+  .hero-grid { display:grid; grid-template-columns: 1.3fr 1fr; gap: 72px; align-items:center; }
+  @media (max-width: 1000px){ .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .hero h1 { font-size: clamp(48px, 7vw, 92px); line-height:.95; margin: 18px 0 22px; }
+  .hero .lede { font-size: 19px; line-height: 1.6; color:#D6D6DB; max-width: 640px; }
+  .hero .prepared { margin-top: 30px; padding: 22px 24px; background: var(--bg-surface); border:1px solid rgba(255,255,255,.06); border-radius: 10px; display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .hero .prepared .k { font-size: 10px; letter-spacing:.2em; text-transform:uppercase; color: var(--cfbc-gold); font-weight:700; margin-bottom:6px; }
+  .hero .prepared .v { font-size: 15px; color:#EDEDEF; font-weight:600; }
+  .hero-card { background: var(--bg-surface); border:1px solid rgba(230,57,70,.3); border-radius: 14px; padding: 32px; position: relative; }
+  .hero-card .pin { position:absolute; top:-12px; left: 28px; padding: 6px 14px; background: var(--cfbc-red); color:#fff; font-size:10px; letter-spacing:.22em; text-transform:uppercase; font-weight:700; border-radius:4px; }
+  .hero-card h3 { font-size: 26px; margin-bottom: 12px; }
+  .hero-card p { font-size: 14px; color:#D6D6DB; line-height: 1.6; margin: 0 0 18px; }
+  .hero-card .pledge { padding: 16px; background: #0e0e10; border-left: 3px solid var(--cfbc-gold); border-radius: 6px; font-size: 13px; color:#EDEDEF; line-height: 1.55; }
+  .hero-card .pledge b { color: var(--cfbc-gold); }
 
-  @media (max-width: 1024px) {
-    .page-cards { grid-template-columns: 1fr; }
-    .kit { grid-template-columns: 1fr; gap: 28px; padding: 28px; }
-  }
+  /* ---------- AGENDA ---------- */
+  .agenda { padding: 64px 0; background:#09090a; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .agenda-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
+  @media (max-width: 900px){ .agenda-grid { grid-template-columns: 1fr 1fr; } }
+  .agenda-cell { padding: 20px; background: var(--bg-surface); border:1px solid rgba(255,255,255,.06); border-radius: 10px; }
+  .agenda-cell .n { font-family: var(--font-display); font-size: 36px; font-style: italic; color: var(--cfbc-red); line-height:.9; margin-bottom:10px; }
+  .agenda-cell h5 { font-size: 14px; color:#fff; letter-spacing:.04em; margin: 0 0 6px; }
+  .agenda-cell p { font-size: 12px; color:#8E8E98; line-height:1.55; margin:0; }
+
+  /* ---------- OPTIONS ---------- */
+  .options { padding: 80px 0 40px; }
+  .options h2 { font-size: clamp(36px, 5vw, 56px); line-height:1; margin: 14px 0 10px; }
+  .options .lede { max-width: 720px; margin-top: 8px; }
+
+  .grid { padding: 40px 0 16px; display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width:1000px) { .grid { grid-template-columns: 1fr; } }
+
+  .card { background: var(--bg-surface); border:1px solid rgba(255,255,255,.06); border-radius: 14px; padding: 28px 26px; display:flex; flex-direction:column; gap: 18px; transition: transform 180ms, border-color 180ms; position: relative; overflow: hidden; text-decoration: none; color: inherit; }
+  .card:hover { transform: translateY(-4px); border-color: rgba(230,57,70,.4); }
+  .card .num { font-family: var(--font-display); font-size: 130px; line-height: .85; color: var(--cfbc-red); letter-spacing:-.02em; font-style: italic; font-weight: 900; opacity: .14; position:absolute; right: 18px; top: 6px; pointer-events: none; }
+  .card .tag { display:inline-block; font-size: 10px; letter-spacing:.2em; text-transform: uppercase; color: var(--cfbc-red); font-weight:700; padding:6px 12px; background: rgba(230,57,70,.1); border: 1px solid rgba(230,57,70,.3); border-radius:999px; align-self:flex-start; }
+  .card h3 { font-size: 32px; line-height: 1; }
+  .card .angle { font-size: 14px; color:#D6D6DB; line-height: 1.55; font-style: italic; padding-left: 14px; border-left: 2px solid var(--cfbc-red); }
+  .card ul { list-style: none; margin:0; padding:0; display:flex; flex-direction:column; gap: 8px; font-size: 13px; color:#B4B4BC; }
+  .card ul li { display:flex; gap:10px; align-items:flex-start; }
+  .card ul li::before { content:'●'; color: var(--cfbc-red); font-size: 9px; margin-top: 5px; }
+  .card .life-force { padding: 14px; background:#0e0e10; border-radius: 8px; border-left: 3px solid var(--cfbc-gold); }
+  .card .life-force .lbl { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color: var(--cfbc-gold); font-weight:700; margin-bottom: 4px; }
+  .card .life-force .val { font-size:13px; color:#EDEDEF; font-weight:600; }
+  .card .cta { margin-top: auto; display:flex; align-items:center; justify-content: space-between; padding: 14px 18px; background: var(--cfbc-red); color:#fff; border-radius: 6px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size: 12px; transition: background 180ms; }
+  .card .cta:hover { background: #C72A36; }
+  .card .cta::after { content:'→'; font-size: 16px; }
+  .card .vote { padding: 14px; background: rgba(245,183,0,.05); border: 1px dashed rgba(245,183,0,.3); border-radius: 8px; display:flex; align-items:center; justify-content: space-between; gap: 12px; cursor:pointer; transition: background 160ms, border-color 160ms; }
+  .card .vote .lbl { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color: var(--cfbc-gold); font-weight:700; }
+  .card .vote .pick { font-size: 11px; color: #D6D6DB; font-weight: 600; }
+  .card.winner { border-color: var(--cfbc-gold); box-shadow: 0 0 0 1px rgba(245,183,0,.3), 0 20px 48px rgba(0,0,0,.4); }
+  .card.winner .vote { background: rgba(245,183,0,.15); border-style: solid; border-color: rgba(245,183,0,.6); }
+  .card.winner .vote .pick { color: var(--cfbc-gold); }
+  .card.winner::before { content:'✓ Selected'; position:absolute; top:14px; left:50%; transform: translateX(-50%); font-size: 9px; letter-spacing:.2em; text-transform:uppercase; color: #0B0B0C; background: var(--cfbc-gold); padding: 4px 10px; border-radius: 999px; font-weight:700; z-index: 2; }
+
+  /* ---------- METRICS / PROJECTIONS ---------- */
+  .metrics { padding: 80px 0; background: #09090a; border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); }
+  .metrics-head { max-width: 820px; margin-bottom: 40px; }
+  .metrics-head h2 { font-size: clamp(36px, 5vw, 56px); line-height:1; margin: 14px 0 16px; }
+  .assumptions { display:grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 40px; }
+  @media (max-width: 1000px){ .assumptions { grid-template-columns: repeat(2, 1fr); } }
+  .assumption { padding: 18px; background: var(--bg-surface); border: 1px solid rgba(255,255,255,.06); border-radius: 10px; }
+  .assumption .k { font-size: 10px; letter-spacing:.18em; text-transform: uppercase; color:#8E8E98; font-weight: 700; margin-bottom: 8px; }
+  .assumption .v { font-family: var(--font-display); font-size: 28px; font-style: italic; color:#fff; line-height:1; }
+  .assumption .v small { font-size: 13px; color:#8E8E98; font-family: var(--font-body); font-style: normal; margin-left: 4px; letter-spacing:0; font-weight: 600; }
+
+  .table-wrap { background: var(--bg-surface); border: 1px solid rgba(255,255,255,.06); border-radius: 12px; overflow: hidden; }
+  .tb-head { display:grid; grid-template-columns: 1fr 1.2fr 1.2fr 1.4fr 2fr; padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 10px; letter-spacing:.18em; text-transform:uppercase; color:#8E8E98; font-weight:700; background: #0e0e10; }
+  .tb-row { display:grid; grid-template-columns: 1fr 1.2fr 1.2fr 1.4fr 2fr; padding: 18px 22px; border-bottom: 1px solid rgba(255,255,255,.04); align-items: center; }
+  .tb-row:last-child { border-bottom: none; }
+  .tb-row.highlight { background: rgba(230,57,70,.06); }
+  .tb-row .m { font-family: var(--font-display); font-size: 22px; font-style: italic; color: var(--cfbc-red); }
+  .tb-row .members { font-family: var(--font-display); font-size: 22px; font-style: italic; color:#fff; }
+  .tb-row .rev { color:#D6D6DB; font-weight:600; font-size: 15px; }
+  .tb-row .profit { font-family: var(--font-display); font-size: 22px; font-style: italic; color: var(--cfbc-gold); }
+  .tb-row .profit.neg { color:#8E8E98; }
+  .tb-row .profit-bar { height: 22px; background: #0e0e10; border-radius: 4px; overflow: hidden; position:relative; }
+  .tb-row .profit-bar .fill { height:100%; background: linear-gradient(90deg, var(--cfbc-red), var(--cfbc-gold)); border-radius: 4px; }
+  .tb-row .profit-bar.neg .fill { background: #4A4A52; }
+  @media (max-width: 900px){ .tb-head { display:none; } .tb-row { grid-template-columns: 1fr 1fr; gap: 8px 16px; padding: 16px; } .tb-row .profit-bar { grid-column:1/-1; } }
+
+  .steady { margin-top: 32px; display:grid; grid-template-columns: 1.3fr 1fr; gap: 20px; }
+  @media (max-width: 900px){ .steady { grid-template-columns: 1fr; } }
+  .steady-left { padding: 28px; background: var(--bg-surface); border: 1px solid rgba(230,57,70,.3); border-radius: 12px; }
+  .steady-left h3 { font-size: 24px; margin-bottom: 10px; }
+  .steady-left p { font-size: 14px; color:#D6D6DB; line-height:1.6; margin: 0; }
+  .steady-left .math { margin-top: 16px; padding: 14px 18px; background: #0e0e10; border-radius: 6px; font-family: var(--font-display); font-style: italic; font-size: 16px; color: #EDEDEF; letter-spacing:.02em; line-height: 1.4; }
+  .steady-left .math b { color: var(--cfbc-red); }
+  .steady-right { padding: 28px; background: var(--bg-surface); border: 1px solid rgba(245,183,0,.3); border-radius: 12px; display:flex; flex-direction: column; justify-content: center; }
+  .steady-right .big { font-family: var(--font-display); font-size: 72px; font-style: italic; color: var(--cfbc-gold); line-height:.9; margin-bottom: 6px; }
+  .steady-right .big small { font-size: 22px; color:#fff; font-weight: 700; letter-spacing: 0; }
+  .steady-right .lbl { font-size: 11px; letter-spacing:.2em; text-transform:uppercase; color:#8E8E98; font-weight:700; margin-bottom: 12px; }
+  .steady-right p { font-size: 13px; color:#B4B4BC; line-height: 1.55; margin:0; }
+
+  /* ---------- PLEDGE ---------- */
+  .pledge-sec { padding: 96px 0; position: relative; overflow: hidden; }
+  .pledge-sec::before { content:''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(230,57,70,.12), transparent 60%); pointer-events:none; }
+  .pledge-inner { max-width: 920px; margin: 0 auto; text-align: center; position: relative; }
+  .pledge-inner h2 { font-size: clamp(40px, 6vw, 72px); line-height:.95; margin: 20px 0 20px; }
+  .pledge-inner .sub { font-size: 19px; line-height: 1.55; color:#D6D6DB; max-width: 720px; margin: 0 auto 32px; }
+  .pledge-card { background: var(--bg-surface); border: 2px solid var(--cfbc-red); border-radius: 14px; padding: 36px 40px; text-align: left; display:grid; grid-template-columns: 80px 1fr; gap: 28px; align-items: center; }
+  @media (max-width: 700px){ .pledge-card { grid-template-columns: 1fr; gap: 18px; padding: 28px; } }
+  .pledge-card .seal { width: 80px; height: 80px; border-radius: 50%; background: var(--cfbc-red); display:flex; align-items:center; justify-content: center; font-family: var(--font-display); font-size: 28px; font-style: italic; color: #fff; letter-spacing: .02em; transform: rotate(-8deg); box-shadow: 0 0 0 4px rgba(230,57,70,.2); }
+  .pledge-card h4 { font-size: 26px; margin-bottom: 10px; }
+  .pledge-card p { font-size: 15px; color:#D6D6DB; line-height: 1.6; margin: 0; }
+  .pledge-card p b { color: #fff; }
+  .pledge-signed { margin-top: 28px; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #8E8E98; font-weight: 700; }
+
+  /* ---------- NEXT STEP ---------- */
+  .next { padding: 72px 0 96px; background: #09090a; border-top: 1px solid rgba(255,255,255,.08); }
+  .next-inner { display:grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+  @media (max-width: 900px){ .next-inner { grid-template-columns: 1fr; } }
+  .next h2 { font-size: clamp(34px, 4.5vw, 48px); line-height:1; margin: 14px 0 16px; }
+  .next p { font-size: 16px; color:#D6D6DB; line-height:1.6; }
+  .next-box { padding: 28px; background: var(--bg-surface); border:1px solid rgba(255,255,255,.06); border-radius: 12px; }
+  .next-box h5 { font-size: 18px; color:#fff; margin-bottom: 14px; letter-spacing:.02em; }
+  .next-box ol { margin: 0 0 22px; padding-left: 20px; color: #D6D6DB; font-size: 14px; line-height: 1.7; }
+  .next-box ol li::marker { color: var(--cfbc-red); font-weight: 700; }
+  .next-box .cta { display:flex; align-items:center; justify-content:center; padding: 16px; background: var(--cfbc-red); color:#fff; border-radius: 6px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size: 13px; gap:10px; }
+  .next-box .cta:hover { background: #C72A36; }
+
+  .footer { padding: 28px 0 40px; border-top: 1px solid rgba(255,255,255,.06); font-size: 11px; color:#8E8E98; letter-spacing:.12em; text-transform:uppercase; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+
+  /* ---------- FUNNEL + SLIDERS ---------- */
+  .funnel { margin-bottom: 40px; padding: 28px; background: var(--bg-surface); border: 1px solid rgba(255,255,255,.06); border-radius: 12px; }
+  .funnel-head { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap: 12px; margin-bottom: 22px; }
+  .funnel-head h3 { font-size: 24px; }
+  .funnel-head .reset { font-size: 11px; letter-spacing:.16em; text-transform:uppercase; color:#8E8E98; font-weight: 700; cursor: pointer; padding: 6px 12px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: transparent; transition: border-color 160ms, color 160ms; }
+  .funnel-head .reset:hover { color:#fff; border-color: var(--cfbc-red); }
+  .funnel-stages { display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: stretch; }
+  @media (max-width: 900px){ .funnel-stages { grid-template-columns: 1fr 1fr; } }
+  .fstage { position: relative; padding: 20px 18px; background: #0e0e10; border-radius: 10px; border: 1px solid rgba(255,255,255,.06); display:flex; flex-direction:column; justify-content: space-between; min-height: 180px; }
+  .fstage .lbl { font-size: 10px; letter-spacing:.18em; text-transform:uppercase; color:#8E8E98; font-weight:700; margin-bottom: 10px; }
+  .fstage .val { font-family: var(--font-display); font-style: italic; font-size: 44px; line-height:.9; color:#fff; letter-spacing:.01em; }
+  .fstage .desc { font-size: 11px; color:#8E8E98; margin-top: 8px; }
+  .fstage.red .val { color: var(--cfbc-red); }
+  .fstage .rate { margin-top: 14px; }
+  .fstage .rate-top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 6px; }
+  .fstage .rate-top .k { font-size: 10px; letter-spacing:.16em; text-transform:uppercase; color:#8E8E98; font-weight: 700; }
+  .fstage .rate-top .v { font-family: var(--font-display); font-style:italic; font-size: 18px; color: var(--cfbc-gold); }
+  .fstage input[type=range] { width:100%; -webkit-appearance: none; appearance:none; background: transparent; height: 20px; }
+  .fstage input[type=range]::-webkit-slider-runnable-track { height: 4px; background: rgba(255,255,255,.1); border-radius: 2px; }
+  .fstage input[type=range]::-moz-range-track { height: 4px; background: rgba(255,255,255,.1); border-radius: 2px; }
+  .fstage input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance:none; width: 16px; height: 16px; background: var(--cfbc-red); border-radius: 50%; margin-top: -6px; cursor: pointer; box-shadow: 0 0 0 3px rgba(230,57,70,.25); }
+  .fstage input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: var(--cfbc-red); border-radius: 50%; border:none; cursor: pointer; box-shadow: 0 0 0 3px rgba(230,57,70,.25); }
+
+  .churn-slider { margin-top: 16px; padding: 16px 18px; background:#0e0e10; border-radius: 8px; border: 1px dashed rgba(230,57,70,.3); }
+  .churn-slider .rate-top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 6px; }
+  .churn-slider .rate-top .k { font-size: 10px; letter-spacing:.16em; text-transform:uppercase; color:#8E8E98; font-weight:700; }
+  .churn-slider .rate-top .v { font-family: var(--font-display); font-style:italic; font-size: 20px; color: var(--cfbc-red); }
+  .churn-slider input[type=range] { width:100%; -webkit-appearance: none; appearance: none; background: transparent; height: 20px; }
+  .churn-slider input[type=range]::-webkit-slider-runnable-track { height: 4px; background: rgba(255,255,255,.1); border-radius: 2px; }
+  .churn-slider input[type=range]::-moz-range-track { height: 4px; background: rgba(255,255,255,.1); border-radius: 2px; }
+  .churn-slider input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance:none; width: 16px; height: 16px; background: var(--cfbc-red); border-radius: 50%; margin-top: -6px; cursor: pointer; box-shadow: 0 0 0 3px rgba(230,57,70,.25); }
+  .churn-slider input[type=range]::-moz-range-thumb { width: 16px; height: 16px; background: var(--cfbc-red); border-radius: 50%; border:none; cursor: pointer; box-shadow: 0 0 0 3px rgba(230,57,70,.25); }
+  .churn-slider .hint { font-size: 11px; color:#8E8E98; margin-top: 8px; line-height:1.5; }
 </style>
 </head>
-<body data-screen-label="Index · CFBC Landing Pages">
+<body data-screen-label="Proposal">
 
-<div class="promo-strip">
-  <span class="dot"></span><b>Iron &amp; Ales</b> · Last Friday · Wackadoo Brewing · 3:30 PM <a href="page-1-best-gym.html#iron-ales">Learn More →</a>
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Proposal · CrossFit Bonnie &amp; Clyde</div>
+      <h1>Three Landing Pages,<br/>Built To <em class="r">A/B Test.</em></h1>
+      <p class="lede">We built three complete, conversion-optimized landing pages — each targeting a different kind of high-intent searcher in Colorado Springs. These are the <b style="color:#fff">A/B test set</b> we'll use to find what converts best for CFBC. Your win is our win — and we're backing that up with a performance pledge further down this page.</p>
+      <div style="margin-top:22px;padding:14px 18px;background:rgba(245,183,0,.07);border:1px dashed rgba(245,183,0,.35);border-radius:8px;font-size:13px;color:#EDEDEF;line-height:1.55"><b style="color:var(--cfbc-gold);letter-spacing:.12em;text-transform:uppercase;font-size:11px">⚑ Note on Copy</b><br/>These are high-quality rough drafts. Numbers, testimonials, and specific claims are illustrative and will need CFBC review and revision before launch. The structure, flow, and design are production-ready.</div>
+      <div class="prepared">
+        <div><div class="k">Prepared For</div><div class="v">Clint &amp; Lisa Jordan · CFBC</div></div>
+        <div><div class="k">Prepared By</div><div class="v">Your growth partner</div></div>
+        <div><div class="k">Offer Being Sold</div><div class="v">$140/mo unlimited</div></div>
+        <div><div class="k">Traffic Source</div><div class="v">Google Search · decision-stage</div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="pin">Our Pledge</div>
+      <h3>Profit In 60 Days <em class="r">— Or We Work Free.</em></h3>
+      <p>Your success isn't a milestone for us — it's the whole point. If you don't see profit from these landing pages within the first two months, we keep working <b style="color:#fff">at no cost</b> until you do.</p>
+      <div class="pledge">
+        <b>The full breakdown</b> is on page 3 of this deck — including the exact month-by-month growth math we're staking this pledge on.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AGENDA ========== -->
+<section class="agenda">
+  <div class="wrap">
+    <div class="eyebrow">What's In This Proposal</div>
+    <div class="agenda-grid">
+      <div class="agenda-cell"><div class="n">01</div><h5>Three Landing Pages</h5><p>Each targets a different Life Force 8 driver in cold Google traffic.</p></div>
+      <div class="agenda-cell"><div class="n">02</div><h5>Run The A/B Test</h5><p>All three pages ship live. Real search traffic decides the winner — not guesses.</p></div>
+      <div class="agenda-cell"><div class="n">03</div><h5>Realistic Projections</h5><p>Month-by-month revenue and profit expectations with conservative churn.</p></div>
+      <div class="agenda-cell"><div class="n">04</div><h5>Our Pledge</h5><p>Profit in 60 days or we work for free until you do. In writing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OPTIONS ========== -->
+<section class="options">
+  <div class="wrap">
+    <div class="eyebrow">Section 01 · The Three Options</div>
+    <h2>Three Angles. <em class="r">Real Traffic Picks The Winner.</em></h2>
+    <p class="lede body">Below are three complete, live landing pages. Same offer ($140/mo unlimited), same urgency engine, same calendar booking — three very different psychological approaches. All three will run in rotation against real Google search traffic. Whichever converts best becomes the scaled-up variant; the other two either feed into it or stay alive for different keyword clusters.</p>
+  </div>
+  <div class="wrap grid" id="cards">
+    <a class="card" data-card="1" href="page-1-best-gym.html" target="_blank" rel="noopener">
+      <div class="num">01</div>
+      <span class="tag">Status + Logic</span>
+      <h3>Best Gym<br/>Near You</h3>
+      <div class="angle">"I searched for the best CrossFit gym. This is it."</div>
+      <ul>
+        <li>Why most gyms don't work</li>
+        <li>$140/mo value stack breakdown</li>
+        <li>Comparison table vs cheap gyms + other CF boxes</li>
+        <li>Results-focused testimonials</li>
+      </ul>
+      <div class="life-force"><div class="lbl">Life Force 8 Driver</div><div class="val">Superiority · Practical Results</div></div>
+      <span class="cta">Open Page 01 In New Tab</span>
+    </a>
+
+    <a class="card" data-card="2" href="page-2-community.html" target="_blank" rel="noopener">
+      <div class="num">02</div>
+      <span class="tag">Belonging</span>
+      <h3>Community &amp;<br/>Accountability</h3>
+      <div class="angle">"You don't need more motivation. You need the right environment."</div>
+      <ul>
+        <li>"Why you've struggled before" diagnosis</li>
+        <li>Coaches know your name — proof points</li>
+        <li>Iron &amp; Ales as a reward ritual</li>
+        <li>87% year-1 retention callout</li>
+      </ul>
+      <div class="life-force"><div class="lbl">Life Force 8 Driver</div><div class="val">Social Approval · Belonging</div></div>
+      <span class="cta">Open Page 02 In New Tab</span>
+    </a>
+
+    <a class="card" data-card="3" href="page-3-beginner.html" target="_blank" rel="noopener">
+      <div class="num">03</div>
+      <span class="tag">Fear Removal</span>
+      <h3>Beginner Safe<br/>+ Guided</h3>
+      <div class="angle">"Even if you're out of shape, you'll be guided every step."</div>
+      <ul>
+        <li>3 fears → 3 reframes</li>
+        <li>4-step on-ramp journey</li>
+        <li>Same-workout 3-level scaling viz</li>
+        <li>Post-surgery &amp; first-gym testimonials</li>
+      </ul>
+      <div class="life-force"><div class="lbl">Life Force 8 Driver</div><div class="val">Freedom From Fear · Safety</div></div>
+      <span class="cta">Open Page 03 In New Tab</span>
+    </a>
+  </div>
+</section>
+
+<!-- ========== METRICS ========== -->
+<section class="metrics">
+  <div class="wrap">
+    <div class="metrics-head">
+      <div class="eyebrow">Section 02 · What To Expect</div>
+      <h2>Realistic <em class="r">Month-By-Month</em> Projections.</h2>
+      <p class="body">We're not promising hockey sticks. We're showing you conservative, believable math with a realistic 20% churn rate. Here's what happens when these landing pages are paired with $1,000/mo in ad spend:</p>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom:14px">Ad Funnel · Adjust The Sliders</div>
+    <div class="funnel">
+      <div class="funnel-head">
+        <h3>From Click To Member — <em class="r">Your Funnel, Your Numbers.</em></h3>
+        <button class="reset" id="funnel-reset">Reset Defaults</button>
+      </div>
+      <div class="funnel-stages">
+        <div class="fstage">
+          <div>
+            <div class="lbl">Step 01 · Ad Clicks</div>
+            <div class="val" id="f-clicks">250</div>
+            <div class="desc">Monthly clicks from paid search</div>
+          </div>
+          <div class="rate">
+            <div class="rate-top"><span class="k">Volume</span><span class="v" id="f-clicks-v">250</span></div>
+            <input type="range" id="in-clicks" min="50" max="1000" step="10" value="250" />
+          </div>
+        </div>
+        <div class="fstage">
+          <div>
+            <div class="lbl">Step 02 · Leads</div>
+            <div class="val" id="f-leads">50</div>
+            <div class="desc">Form fills / intro bookings</div>
+          </div>
+          <div class="rate">
+            <div class="rate-top"><span class="k">Conversion</span><span class="v" id="in-conv-v">20%</span></div>
+            <input type="range" id="in-conv" min="5" max="50" step="1" value="20" />
+          </div>
+        </div>
+        <div class="fstage">
+          <div>
+            <div class="lbl">Step 03 · Shows</div>
+            <div class="val" id="f-shows">35</div>
+            <div class="desc">Leads who walk in for intro</div>
+          </div>
+          <div class="rate">
+            <div class="rate-top"><span class="k">Show Rate</span><span class="v" id="in-show-v">70%</span></div>
+            <input type="range" id="in-show" min="30" max="100" step="1" value="70" />
+          </div>
+        </div>
+        <div class="fstage red">
+          <div>
+            <div class="lbl">Step 04 · New Members</div>
+            <div class="val" id="f-members">12</div>
+            <div class="desc">Closed &amp; onboarded</div>
+          </div>
+          <div class="rate">
+            <div class="rate-top"><span class="k">Close Rate</span><span class="v" id="in-close-v">35%</span></div>
+            <input type="range" id="in-close" min="10" max="80" step="1" value="35" />
+          </div>
+        </div>
+      </div>
+      <div class="churn-slider">
+        <div class="rate-top"><span class="k">Monthly Churn (drives 6-month compounding table below)</span><span class="v" id="in-churn-v">20%</span></div>
+        <input type="range" id="in-churn" min="5" max="40" step="1" value="20" />
+        <div class="hint">At 20% churn, the gym stabilizes around 60 active ad-sourced members. Drag lower to see what disciplined retention does to long-term profit.</div>
+      </div>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom:14px">Baseline Assumptions</div>
+    <div class="assumptions">
+      <div class="assumption"><div class="k">New Members / Mo</div><div class="v" id="a-members">12</div></div>
+      <div class="assumption"><div class="k">Membership Price</div><div class="v">$140<small>/mo</small></div></div>
+      <div class="assumption"><div class="k">Monthly Churn</div><div class="v"><span id="a-churn">20</span><small>%</small></div></div>
+      <div class="assumption"><div class="k">Ad Spend</div><div class="v">$1,000<small>/mo</small></div></div>
+      <div class="assumption"><div class="k">Management Fee</div><div class="v">$697<small>/mo</small></div></div>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom:14px">Six-Month Compounding Projection</div>
+    <div class="table-wrap">
+      <div class="tb-head">
+        <div>Month</div><div>Active Members</div><div>Recurring Revenue</div><div>Monthly Profit</div><div>Profit Trend</div>
+      </div>
+      <div id="proj-rows"></div>
+    </div>
+
+    <div class="steady">
+      <div class="steady-left">
+        <div class="eyebrow" style="margin-bottom:10px">The Real Lever</div>
+        <h3>It's Not One Month Of ROI — <em class="r">It's Stacking Members.</em></h3>
+        <p>At <span id="lvl-new">12</span> new members per month and <span id="lvl-churn">20</span>% monthly churn, growth compounds and eventually stabilizes. The math:</p>
+        <div class="math" id="lvl-math">Steady state = 12 ÷ 0.20 = <b>~60 members</b> from ads alone · 60 × $140 = <b>$8,400/mo</b> recurring · minus $1,697 cost = <b>~$6,700/mo</b> profit.</div>
+      </div>
+      <div class="steady-right">
+        <div class="lbl">Stabilization Point</div>
+        <div class="big" id="lvl-big">$6,700<small>/mo</small></div>
+        <p>Sustained monthly profit from paid traffic alone, once growth stabilizes (typically month 8–10). This sits on top of your existing member base — it's new recurring revenue, not a replacement for it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PLEDGE ========== -->
+<section class="pledge-sec">
+  <div class="wrap pledge-inner">
+    <div class="eyebrow center">Section 03 · Our Pledge To You</div>
+    <h2>If You Don't Profit In 60 Days,<br/><em class="r">We Work For Free Until You Do.</em></h2>
+    <p class="sub">Your success is as important to us as it is to you. We've priced this, built this, and modeled this around <b style="color:#fff">you making money</b> — not us hitting a retainer. So we're putting it in writing.</p>
+
+    <div class="pledge-card">
+      <div class="seal">CFBC</div>
+      <div>
+        <h4>The Terms — Plain English.</h4>
+        <p>If you're not seeing <b>positive monthly profit</b> from the landing pages + ad spend by the end of month two, we continue running ads, refining copy, A/B testing headlines, and optimizing conversion <b>at no additional cost</b> until you cross into profit. No contracts rewritten. No invoices. We don't eat until you do.</p>
+      </div>
+    </div>
+    <div class="pledge-signed">Backed in writing · Applied from day one · No fine print</div>
+  </div>
+</section>
+
+<!-- ========== NEXT STEP ========== -->
+<section class="next">
+  <div class="wrap next-inner">
+    <div>
+      <div class="eyebrow">Section 04 · Next Step</div>
+      <h2>Review, Refine,<br/><em class="r">Then We Launch.</em></h2>
+      <p>Open each landing page in a new tab. Flag any copy, stats, or testimonials that need CFBC-specific edits — these are rough drafts meant to demonstrate structure and approach. Once we tune the language together, all three pages go live as the initial A/B test set.</p>
+    </div>
+    <div class="next-box">
+      <h5>How We Get To Launch</h5>
+      <ol>
+        <li>Open each page in a new tab, read through the full flow</li>
+        <li>Send us copy edits, real testimonials, and accurate stats</li>
+        <li>Book a 30-minute kickoff call to finalize the launch plan</li>
+        <li>We push all three live and start the A/B test within 72 hours</li>
+      </ol>
+      <a href="https://brand.gobizhelp.com/widget/booking/TZVKPnWAyvGwAbQ0o3lH" target="_blank" rel="noopener" class="cta">Schedule Kickoff Call →</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap footer">
+  <div>CrossFit Bonnie &amp; Clyde · Colorado Springs, CO · Est. 2017</div>
+  <div>Proposal · Prepared for Clint &amp; Lisa Jordan</div>
 </div>
 
-<nav class="lp-nav">
-  <div class="lp-nav-inner">
-    <div class="lp-nav-links left">
-      <a href="#pages" class="active">Pages</a>
-      <a href="#system">Design System</a>
-    </div>
-    <a href="#pages" class="lp-logo-puck"><img src="assets/logo-cfbc.png" alt="CFBC"/></a>
-    <div class="lp-nav-links right">
-      <a href="tel:+17197772232">(719) 777-2232</a>
-      <a href="page-1-best-gym.html#book" class="lp-nav-cta">Book Your Free Intro</a>
-    </div>
-  </div>
-</nav>
-
-<section class="index-hero">
-  <div class="eyebrow" style="justify-content:center">CrossFit Bonnie &amp; Clyde · Decision-Stage Campaign</div>
-  <h1 class="display-h1">Three Angles. <em class="red-em">One Gym.</em> Pick A Door.</h1>
-  <p class="body-lg">Each page is a different conversion angle for a different visitor — status &amp; logic, community &amp; belonging, or fear removal. Same design system, same membership, same $140/month.</p>
-</section>
-
-<section id="pages" class="pad-y">
-  <div class="wrap">
-    <div class="page-cards">
-      <a class="page-card" href="page-1-best-gym.html">
-        <div class="cover" style="background-image:url('assets/photo-gym.webp')">
-          <div class="num">01</div>
-          <span class="tag">Status + Logic</span>
-        </div>
-        <div class="body">
-          <h3>Best Gym Near You</h3>
-          <p class="summary">For the researcher who Googled "best CrossFit gym Colorado Springs." Proof, comparison, value stack.</p>
-          <ul>
-            <li>Hero with ranked proof + 4-stat meta</li>
-            <li>Value stack · $140 vs $660 stacked value</li>
-            <li>Side-by-side vs big-box &amp; average box</li>
-            <li>Results testimonials with quantified outcomes</li>
-          </ul>
-          <span class="open">Open Page 01 →</span>
-        </div>
-      </a>
-      <a class="page-card" href="page-2-community.html">
-        <div class="cover" style="background-image:url('assets/action-3.avif')">
-          <div class="num">02</div>
-          <span class="tag">Belonging + Consistency</span>
-        </div>
-        <div class="body">
-          <h3>Community &amp; Accountability</h3>
-          <p class="summary">For the visitor who's tried-and-quit. "Right room beats more willpower." Retention as the product.</p>
-          <ul>
-            <li>Before / after "what you've had" contrast</li>
-            <li>Community grid + named-coach proof</li>
-            <li>Iron &amp; Ales as the retention ritual</li>
-            <li>5-step journey to "regular"</li>
-          </ul>
-          <span class="open">Open Page 02 →</span>
-        </div>
-      </a>
-      <a class="page-card" href="page-3-beginner.html">
-        <div class="cover" style="background-image:url('assets/photo-coach-squat.webp')">
-          <div class="num">03</div>
-          <span class="tag">Fear Removal</span>
-        </div>
-        <div class="body">
-          <h3>Beginner Safe + Guided</h3>
-          <p class="summary">For the nervous first-timer. "You don't have to be ready." Three fears named and solved.</p>
-          <ul>
-            <li>3 fears · reframed with the fix</li>
-            <li>4-step on-ramp (45 min → month 2)</li>
-            <li>Same-workout scaling at three levels</li>
-            <li>Coach bios + beginner-specific testimonials</li>
-          </ul>
-          <span class="open">Open Page 03 →</span>
-        </div>
-      </a>
-    </div>
-
-    <div id="system" class="kit">
-      <div>
-        <div class="eyebrow">Shared System</div>
-        <h3>One Kit. Three Angles.</h3>
-        <p class="body">Every page loads the same design tokens, layout system, and conversion-oriented components — countdown, spot decay, calendar, sticky CTA, and tweaks panel. Swap a headline, price, CTA, or risk-reversal from the tweaks panel on any page.</p>
-      </div>
-      <div class="kit-files">
-        <div class="kit-file"><span class="ico">CSS</span><span class="name">shared/colors_and_type.css<span>Brand tokens · type scale · spacing</span></span><span class="meta">Design tokens</span></div>
-        <div class="kit-file"><span class="ico">CSS</span><span class="name">shared/lp.css<span>Layout · components · responsive</span></span><span class="meta">Components</span></div>
-        <div class="kit-file"><span class="ico">JS</span><span class="name">shared/lp.js<span>Tweaks · countdown · spots · calendar</span></span><span class="meta">Behavior</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="lp-footer">
-  <div class="lp-footer-inner">
-    <div class="brand">
-      <img src="assets/logo-cfbc.png" class="logo" alt="CrossFit Bonnie & Clyde"/>
-      <div style="color:#8E8E98;font-size:13px;line-height:1.6;max-width:300px">Community-driven, fitness-focused. Veteran-owned CrossFit box in Colorado Springs since 2017.</div>
-      <div class="socials">
-        <a href="#"><img src="assets/icon-social-fb.png" alt="Facebook"/></a>
-        <a href="#"><img src="assets/icon-social-ig.png" alt="Instagram"/></a>
-        <a href="#"><img src="assets/icon-social-gb.png" alt="Google"/></a>
-      </div>
-    </div>
-    <div><h5>Visit</h5><ul><li>706 Arrawanna St</li><li>Colorado Springs, CO 80909</li><li><a href="tel:+17197772232">(719) 777-2232</a></li></ul></div>
-    <div><h5>Schedule</h5><ul><li>Mon–Fri · 4am–8pm</li><li>Sat · 7am–12pm</li><li>Open Gym 24/7</li></ul></div>
-    <div><h5>Pages</h5><ul><li><a href="page-1-best-gym.html">Best Gym Page</a></li><li><a href="page-2-community.html">Community Page</a></li><li><a href="page-3-beginner.html">Beginner Page</a></li></ul></div>
-  </div>
-  <div class="lp-footer-bottom">
-    <div>© 2026 CrossFit Bonnie &amp; Clyde · Colorado Springs, CO</div>
-    <div>Veteran-owned · Est. 2017</div>
-  </div>
-</footer>
 
 </body>
+<script>
+  (function(){
+    const $ = id => document.getElementById(id);
+    const defaults = { clicks: 250, conv: 20, show: 70, close: 35, churn: 20 };
+    const state = Object.assign({}, defaults);
+    const PRICE = 140, COST = 1697;
+    const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+    const fmtSign = n => (n < 0 ? '\u2212$' : '+$') + Math.round(Math.abs(n)).toLocaleString('en-US');
+
+    function compute(){
+      const clicks = state.clicks;
+      const leads = clicks * (state.conv/100);
+      const shows = leads * (state.show/100);
+      const newMem = shows * (state.close/100);
+      const churn = state.churn / 100;
+
+      $('f-clicks').textContent = Math.round(clicks);
+      $('f-clicks-v').textContent = Math.round(clicks);
+      $('f-leads').textContent = leads.toFixed(leads < 10 ? 1 : 0);
+      $('f-shows').textContent = shows.toFixed(shows < 10 ? 1 : 0);
+      $('f-members').textContent = newMem.toFixed(1);
+      $('in-conv-v').textContent = state.conv + '%';
+      $('in-show-v').textContent = state.show + '%';
+      $('in-close-v').textContent = state.close + '%';
+      $('in-churn-v').textContent = state.churn + '%';
+      $('a-members').textContent = newMem.toFixed(newMem < 10 ? 1 : 1);
+      $('a-churn').textContent = state.churn;
+      $('lvl-new').textContent = newMem.toFixed(1);
+      $('lvl-churn').textContent = state.churn;
+
+      // 6-month compounding
+      let m = 0;
+      const rows = [];
+      for (let i=1; i<=6; i++){
+        if (i === 1) m = newMem;
+        else m = m * (1 - churn) + newMem;
+        const rev = m * PRICE;
+        const profit = rev - COST;
+        rows.push({ i, m, rev, profit });
+      }
+      const maxAbs = Math.max(...rows.map(r => Math.abs(r.profit)), 1);
+      const html = rows.map(r => {
+        const pct = Math.max(2, Math.min(100, Math.abs(r.profit)/maxAbs*100));
+        const neg = r.profit < 0;
+        const highlight = r.i === 3 ? ' highlight' : '';
+        return `<div class="tb-row${highlight}">
+          <div class="m">M${r.i}</div>
+          <div class="members">${r.m.toFixed(1)}</div>
+          <div class="rev">${fmt(r.rev)}</div>
+          <div class="profit${neg?' neg':''}">${fmtSign(r.profit)}</div>
+          <div class="profit-bar${neg?' neg':''}"><div class="fill" style="width:${pct}%"></div></div>
+        </div>`;
+      }).join('');
+      $('proj-rows').innerHTML = html;
+
+      // Steady state: newMem / churn
+      const steady = churn > 0 ? newMem / churn : 0;
+      const steadyRev = steady * PRICE;
+      const steadyProfit = steadyRev - COST;
+      $('lvl-math').innerHTML = `Steady state = ${newMem.toFixed(1)} ÷ ${churn.toFixed(2)} = <b>~${steady.toFixed(0)} members</b> from ads alone · ${steady.toFixed(0)} × $140 = <b>${fmt(steadyRev)}/mo</b> recurring · minus $1,697 cost = <b>${fmt(steadyProfit)}/mo</b> profit.`;
+      $('lvl-big').innerHTML = `${fmt(steadyProfit)}<small>/mo</small>`;
+    }
+
+    const binds = [['in-clicks','clicks'],['in-conv','conv'],['in-show','show'],['in-close','close'],['in-churn','churn']];
+    binds.forEach(([id,key]) => {
+      const el = $(id);
+      el.addEventListener('input', () => { state[key] = parseInt(el.value,10); compute(); });
+    });
+    $('funnel-reset').addEventListener('click', () => {
+      Object.assign(state, defaults);
+      binds.forEach(([id,key]) => $(id).value = defaults[key]);
+      compute();
+    });
+    compute();
+  })();
+</script>
 </html>
