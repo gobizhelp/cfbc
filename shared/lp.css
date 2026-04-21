@@ -186,6 +186,7 @@ em.red-em { font-style: italic; color: var(--cfbc-red); font-weight: 700; }
 .value-split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
 
 /* ---------- VS COMPARISON TABLE ---------- */
+.vs-scroll { width: 100%; }
 .vs-table {
   width: 100%; border-collapse: separate; border-spacing: 0;
   background: var(--bg-surface); border-radius: 12px; overflow: hidden;
@@ -510,6 +511,21 @@ em.red-em { font-style: italic; color: var(--cfbc-red); font-weight: 700; }
   .stack-card { padding: 28px 22px; }
   .vs-table th, .vs-table td { padding: 14px 12px; font-size: 13px; }
   .vs-table th { font-size: 16px; }
+  .vs-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -20px;
+    padding: 0 20px;
+    scrollbar-width: thin;
+  }
+  .vs-scroll .vs-table { min-width: 640px; border-radius: 10px; }
+  .vs-scroll .vs-table th:first-child,
+  .vs-scroll .vs-table td:first-child {
+    position: sticky; left: 0; z-index: 1;
+    background: #17171a;
+    box-shadow: 6px 0 10px -6px rgba(0,0,0,.55);
+  }
+  .vs-scroll .vs-table tbody td:first-child { background: var(--bg-surface); }
   .tweaks-panel { width: calc(100% - 40px); right: 20px; left: 20px; top: 80px; bottom: 80px; }
   .copylab-inner { max-height: 94vh; }
 }
